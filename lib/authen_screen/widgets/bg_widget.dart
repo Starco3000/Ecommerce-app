@@ -14,8 +14,8 @@ Widget bgWidget(BuildContext context, {Widget? child}) {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                  Color(0xFFff5c30),
-                  Color(0xFFe74b1a),
+                  Color.fromRGBO(255, 92, 48, 1),
+                  Color.fromRGBO(231, 75, 26, 1),
                 ])),
           ),
           // Container(
