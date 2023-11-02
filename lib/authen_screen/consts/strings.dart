@@ -9,7 +9,10 @@ const retypePassword = "Retype Password";
 const name = "name";
 const nameHint = "johnson";
 const forgetPass = "Forget password?";
+const seller = "A Seller?";
 const login = "Log in";
+const loggedin = "Logged in successfully";
+const loggedout = "Logged out";
 const signup = "Sign Up";
 const anotherLogin = "Or";
 const createNewAccount = "Don't have an account yet?";
@@ -51,3 +54,14 @@ const womanClothing = "Women Clothing",
     jewelery = "Jewelery",
     cellphone = "Cellphone & Tab",
     furniture = "Furniture";
+
+//Product detail string
+const video = "Video",
+    reviews = "Reviews",
+    sellerpolicy = "Seller policy",
+    returnpolicy = "Return Policy",
+    supportPolicy = "Support Policy",
+    productsyoumaylike = "Products you may also like";
+
+//Profile string
+const profileTitle = "Profile", logout = "Log out";
