@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/add_product.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/product_detail.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/appbar_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
@@ -10,7 +11,9 @@ class ProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(() => const AddProduct());
+        },
         child: Icon(Icons.add),
       ),
       appBar: appbarWidget(products),
