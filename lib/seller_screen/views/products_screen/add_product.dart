@@ -17,34 +17,62 @@ class AddProduct extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(Icons.arrow_back, color: darkGrey)),
-        title: boldText(text: "Add Product", color: fontGrey, size: 16.0),
-        actions: [
-          TextButton(
-              onPressed: () {},
-              child: boldText(text: "Save", color: purpleColor))
-        ],
+            icon: const Icon(Icons.arrow_back)),
+        title: boldText(text: "Add Product", size: 16.0),
+        actions: [TextButton(onPressed: () {}, child: boldText(text: "Save"))],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            customTextField(hint: "eg.  BMW", lable: "Product name"),
-            10.heightBox,
-            customTextField(
-                hint: "eg.  nice product", lable: "Description", isDesc: true),
-            10.heightBox,
-            customTextField(hint: "eg.  \$300", lable: "Price"),
-            10.heightBox,
-            customTextField(hint: "eg.  30", lable: "Quantities"),
-            10.heightBox,
-            productDropdown(),
-            10.heightBox,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: List.generate(3, (index) => ProductImage()),
-            )
-          ],
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              customTextField(hint: "eg.  BMW", lable: "Product name"),
+              10.heightBox,
+              customTextField(
+                  hint: "eg.  nice product",
+                  lable: "Description",
+                  isDesc: true),
+              10.heightBox,
+              customTextField(hint: "eg.  \$300", lable: "Price"),
+              10.heightBox,
+              customTextField(hint: "eg.  30", lable: "Quantities"),
+              10.heightBox,
+              productDropdown(),
+              10.heightBox,
+              const Divider(color: white),
+              boldText(text: "choose product images"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(
+                    3, (index) => ProductImage(label: "${index + 1}")),
+              ),
+              5.heightBox,
+              normalText(text: "first image will be your display image"),
+              10.heightBox,
+              Wrap(
+                spacing: 8.0,
+                runSpacing: 8.0,
+                children: List.generate(
+                    9,
+                    (index) => Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            VxBox()
+                                .color(Vx.randomPrimaryColor)
+                                .roundedFull
+                                .size(70, 70)
+                                .make(),
+                            const Icon(
+                              Icons.done,
+                              color: white,
+                            )
+                          ],
+                        )),
+              )
+            ],
+          ),
         ),
       ),
     );

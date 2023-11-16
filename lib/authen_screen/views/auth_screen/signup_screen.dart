@@ -1,9 +1,11 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
-import 'package:ecommerce_flutter_app/authen_screen/views/auth_screen/login_screen.dart';
+import 'package:ecommerce_flutter_app/authen_screen/controllers/auth_controller.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/home.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/applogo_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/bg_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/mainbutton_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/textfield_widget.dart';
+import 'package:get/get.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -14,6 +16,13 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool? isCheck = false;
+  var controller = Get.put(AuthController());
+
+  //text controllers
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var retypePasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,7 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 (context.screenHeight * 0.1).heightBox,
                 applogoWidget(),
-                const SizedBox(height: 10),
+                10.heightBox,
                 "Welcome to $appName"
                     .text
                     .fontFamily(bold)
@@ -34,106 +43,147 @@ class _SignupScreenState extends State<SignupScreen> {
                     .white
                     .size(30)
                     .make(),
-                const SizedBox(height: 10),
+                10.heightBox,
 
                 //Text Field
-                Column(
-                  children: [
-                    "Resiger".text.fontFamily(bold).black.size(25).make(),
-                    const SizedBox(height: 10),
-                    textFieldWidget(hint: nameHint, title: name),
-                    textFieldWidget(hint: emailHint, title: email),
-                    textFieldWidget(hint: passHint, title: password),
-                    textFieldWidget(hint: passHint, title: retypePassword),
-                    const SizedBox(height: 15),
+                Obx(
+                  () => Column(
+                    children: [
+                      "Resiger".text.fontFamily(bold).black.size(25).make(),
+                      10.heightBox,
+                      TextFieldWidget(
+                          title: name,
+                          hint: nameHint,
+                          controller: nameController,
+                          obscureText: false),
+                      TextFieldWidget(
+                          title: email,
+                          hint: emailHint,
+                          controller: emailController,
+                          obscureText: false),
+                      TextFieldWidget(
+                          title: password,
+                          hint: passHint,
+                          controller: passwordController,
+                          obscureText: true),
+                      TextFieldWidget(
+                          title: retypePassword,
+                          hint: passHint,
+                          controller: retypePasswordController,
+                          obscureText: true),
+                      15.heightBox,
 
-                    // Privacy Policy
-                    Row(
-                      children: [
-                        Checkbox(
-                          activeColor: primaryColor,
-                          checkColor: whiteColor,
-                          value: isCheck,
-                          onChanged: (newValue) {
-                            setState(() {
-                              isCheck = newValue;
-                            });
-                          },
-                        ),
-                        10.widthBox,
-                        Expanded(
-                          child: RichText(
-                              text: const TextSpan(children: [
-                            TextSpan(
-                                text: "I agree to the ",
+                      // Privacy Policy
+                      Row(
+                        children: [
+                          Checkbox(
+                            activeColor: primaryColor,
+                            checkColor: whiteColor,
+                            value: isCheck,
+                            onChanged: (newValue) {
+                              setState(() {
+                                isCheck = newValue;
+                              });
+                            },
+                          ),
+                          10.widthBox,
+                          Expanded(
+                            child: RichText(
+                                text: const TextSpan(children: [
+                              TextSpan(
+                                  text: "I agree to the ",
+                                  style: TextStyle(
+                                      fontFamily: regular,
+                                      color: dartgreyColor)),
+                              TextSpan(
+                                text: termAndCond,
                                 style: TextStyle(
-                                    fontFamily: regular, color: dartgreyColor)),
-                            TextSpan(
-                              text: termAndCond,
-                              style: TextStyle(
-                                fontFamily: regular,
-                                color: primaryColor,
+                                  fontFamily: regular,
+                                  color: primaryColor,
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: " & ",
-                              style: TextStyle(
-                                fontFamily: regular,
-                                color: primaryColor,
+                              TextSpan(
+                                text: " & ",
+                                style: TextStyle(
+                                  fontFamily: regular,
+                                  color: primaryColor,
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: privacyPolicy,
-                              style: TextStyle(
-                                fontFamily: regular,
-                                color: primaryColor,
-                              ),
-                            )
-                          ])),
-                        )
-                      ],
-                    ),
+                              TextSpan(
+                                text: privacyPolicy,
+                                style: TextStyle(
+                                  fontFamily: regular,
+                                  color: primaryColor,
+                                ),
+                              )
+                            ])),
+                          )
+                        ],
+                      ),
 
-                    // Login button
-                    mainButtonWidget(
-                            color:
-                                isCheck == true ? primaryColor : lightGreyColor,
-                            textColor: whiteColor,
-                            title: signup,
-                            onPress: () {})
-                        .box
-                        .width(context.screenWidth - 50)
-                        .make(),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        loginAccount.text.color(greyColor).make(),
-                        const SizedBox(width: 5),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginScreen()),
-                            );
-                          },
-                          child: signup.text.color(Colors.blue).make(),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                  ],
-                )
-                    .box
-                    .white
-                    .rounded
-                    .padding(const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 25))
-                    .margin(const EdgeInsets.symmetric(vertical: 15))
-                    .width(context.screenWidth - 70)
-                    .shadowSm
-                    .make(),
+                      // Login button
+                      controller.isloading.value
+                          ? const CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(redColor),
+                            )
+                          : mainButtonWidget(
+                              color: isCheck == true
+                                  ? primaryColor
+                                  : Colors.grey[400],
+                              textColor: whiteColor,
+                              title: signup,
+                              onPress: () async {
+                                if (isCheck != false) {
+                                  controller.isloading(true);
+                                  try {
+                                    await controller
+                                        .signupMethod(
+                                            context: context,
+                                            email: emailController.text,
+                                            password: passwordController.text)
+                                        .then((value) {
+                                      return controller.storeUserData(
+                                          email: emailController.text,
+                                          password: passwordController.text,
+                                          name: nameController.text);
+                                    }).then((value) {
+                                      VxToast.show(context, msg: loggedin);
+                                      Get.offAll(() => const Home());
+                                    });
+                                  } catch (e) {
+                                    auth.signOut();
+                                    VxToast.show(context, msg: e.toString());
+                                    controller.isloading(false);
+                                  }
+                                }
+                              }).box.width(context.screenWidth - 50).make(),
+                      5.heightBox,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          loginAccount.text.color(greyColor).make(),
+                          const SizedBox(width: 5),
+                          InkWell(
+                            onTap: () {
+                              Get.back();
+                            },
+                            child: login.text.color(Colors.blue).make(),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                    ],
+                  )
+                      .box
+                      .white
+                      .rounded
+                      .padding(const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 25))
+                      .margin(const EdgeInsets.symmetric(vertical: 15))
+                      .width(context.screenWidth - 70)
+                      .shadowSm
+                      .make(),
+                ),
               ],
             ),
           )),

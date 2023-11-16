@@ -7,6 +7,8 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.purple,
+      child:
+          "Cart is Emty!".text.fontFamily(semibold).color(dartgreyColor).make(),
     );
   }
 }
