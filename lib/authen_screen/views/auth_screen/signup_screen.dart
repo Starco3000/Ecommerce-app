@@ -1,8 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/auth_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/home.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/applogo_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/bg_widget.dart';
+import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/mainbutton_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/textfield_widget.dart';
 import 'package:get/get.dart';
@@ -123,9 +126,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       // Login button
                       controller.isloading.value
-                          ? const CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation(redColor),
-                            )
+                          ? loadingIndicator()
                           : mainButtonWidget(
                               color: isCheck == true
                                   ? primaryColor

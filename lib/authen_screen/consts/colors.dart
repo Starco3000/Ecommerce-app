@@ -13,3 +13,5 @@ const Color redColor = Colors.red;
 const Color golden = Color.fromRGBO(255, 191, 0, 1);
 const Color lightGolden = Color(0xffFEEAD1);
 const Color bgColorBtn = Color.fromRGBO(0, 0, 0, 0.02);
+const Color searchFieldColor = Color.fromRGBO(224, 224, 224, 0.7);
+const Color chatBgColor = Color.fromRGBO(243, 243, 243, 1);
