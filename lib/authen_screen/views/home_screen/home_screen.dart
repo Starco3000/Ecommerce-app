@@ -6,6 +6,7 @@ import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/search_bar.dart';
 import 'package:get/get.dart';
 
+
 class HomeScreen extends StatelessWidget {
   final dynamic data;
   const HomeScreen({Key? key, this.data}) : super(key: key);
@@ -46,6 +47,7 @@ class HomeScreen extends StatelessWidget {
     //                         )),
     //               ),
     //               10.heightBox,
+
 
     //               // 2nd Swiper
     //               swiperWidget(slider: secondSliderList, height: 150),

@@ -9,6 +9,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     // ignore: unused_local_variable
     var controller = Get.put(ProfileController());
 

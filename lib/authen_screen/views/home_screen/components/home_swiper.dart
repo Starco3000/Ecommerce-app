@@ -14,7 +14,7 @@ class HomeSwiper extends StatelessWidget {
             sliderList[index],
             fit: BoxFit.fill,
           );
-        },
+        }
         autoplay: true,
         itemCount: sliderList.length,
         pagination: const SwiperPagination(

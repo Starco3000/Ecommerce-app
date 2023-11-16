@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'dart:io';
 
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
@@ -12,7 +11,6 @@ import 'package:get/get.dart';
 
 class EditProfileScreen extends StatelessWidget {
   final dynamic data;
-
   const EditProfileScreen({Key? key, this.data}) : super(key: key);
 
   @override

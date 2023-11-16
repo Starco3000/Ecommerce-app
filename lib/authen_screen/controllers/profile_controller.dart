@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,9 +8,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+
 class ProfileController extends GetxController {
   var profileImgPath = ''.obs;
-
   var profileImageLink = '';
 
   var isloading = false.obs;
@@ -33,7 +31,7 @@ class ProfileController extends GetxController {
       VxToast.show(context, msg: e.toString());
     }
   }
-
+  
   uploadProfileImage() async {
     var filename = basename(profileImgPath.value);
     var destination = 'images/${currentUser!.uid}/$filename';
@@ -61,4 +59,5 @@ class ProfileController extends GetxController {
       print(error.toString());
     });
   }
+
 }

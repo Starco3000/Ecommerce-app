@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/add_product.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/product_detail.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/appbar_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
@@ -10,7 +11,9 @@ class ProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(() => const AddProduct());
+        },
         child: Icon(Icons.add),
       ),
       appBar: appbarWidget(products),
@@ -28,7 +31,13 @@ class ProductsScreen extends StatelessWidget {
                   leading: Image.asset(imgProduct,
                       width: 100, height: 100, fit: BoxFit.cover),
                   title: boldText(text: "Product title", color: fontGrey),
-                  subtitle: normalText(text: "\$40", color: darkGrey),
+                  subtitle: Row(
+                    children: [
+                      normalText(text: "\$40", color: darkGrey),
+                      10.widthBox,
+                      boldText(text: "Featured", color: green)
+                    ],
+                  ),
                   trailing: VxPopupMenu(
                     arrowSize: 0.0,
                     menuBuilder: () => Column(

@@ -20,8 +20,6 @@ Widget otherProduct(
         mainAxisExtent: itemHeight ?? 200),
     itemBuilder: (context, index) {
       return Container(
-        // decoration:
-        //     BoxDecoration(border: Border.all(color: lightGreyColor, width: 2)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -54,7 +52,6 @@ Widget otherProduct(
         )
             .box
             .white
-            // .margin(const EdgeInsets.symmetric(horizontal: 4))
             .padding(const EdgeInsets.all(4))
             .make(),
       );

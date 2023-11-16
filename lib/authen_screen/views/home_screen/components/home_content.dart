@@ -9,7 +9,6 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.grey[200],
       color: primaryColor,
       child: Column(
         children: [
@@ -93,7 +92,7 @@ class HomeContent extends StatelessWidget {
               ],
             ),
           ),
-          10.heightBox,
+         10.heightBox,
 
           //All products section
           Container(
@@ -104,10 +103,12 @@ class HomeContent extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
+
                   height: 45,
                   width: context.screenWidth,
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+
                   child: "Recommend Product"
                       .text
                       .color(primaryColor)

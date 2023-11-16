@@ -13,6 +13,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     var controller = Get.put(CartController());
     var fromHomeScreen = Get.arguments == 'fromHomeScreen';
     var fromProductDetailScreen = Get.arguments == 'fromProductDetailScreen';

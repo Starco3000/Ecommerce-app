@@ -78,8 +78,7 @@ class LoginScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SignupScreen()),
+                                      builder: (context) => const Home()),
                                 );
                               },
                               child: seller.text.color(Colors.blue).make(),
@@ -89,6 +88,7 @@ class LoginScreen extends StatelessWidget {
 
                       // Login button
                       controller.isloading.value
+
                           ? loadingIndicator()
                           : mainButtonWidget(
                               color: primaryColor,

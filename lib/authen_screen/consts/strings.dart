@@ -64,9 +64,11 @@ const video = "Video",
     productsyoumaylike = "Products you may also like";
 
 //Profile string
+
 const profileTitle = "Profile",
     logout = "Log out",
     myorders = "My Orders",
     message = "Messages",
     oldpass = "Old password",
     newpass = "New password";
+
