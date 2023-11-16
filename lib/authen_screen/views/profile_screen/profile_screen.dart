@@ -9,13 +9,15 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(ProfileController());
 
     return bgWidget(
       context,
       child: Scaffold(
-        appBar: AppBar(title: profileTitle.text.fontFamily(bold).white.make()),
-        body: const Body(),
+        body: SafeArea(
+            child: Container(
+                margin: const EdgeInsets.only(top: 25), child: const Body())),
       ),
     );
   }

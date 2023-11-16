@@ -1,13 +1,18 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/home_action_icon.dart';
 
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/home_content.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/home_swiper.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/search_bar.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final dynamic data;
+  const HomeScreen({Key? key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print("Data in HomeActionIcon: $data");
     // return Container(
     //   padding: const EdgeInsets.all(12),
     //   color: lightGreyColor,
@@ -298,7 +303,7 @@ class HomeScreen extends StatelessWidget {
     //   ),
     // );
     // final ScrollController _scrollController = ScrollController();
-
+    // var controller = Get.find<ProductController>();
     return Scaffold(
       backgroundColor: whiteColor,
       body: NestedScrollView(
@@ -308,6 +313,13 @@ class HomeScreen extends StatelessWidget {
             SliverOverlapAbsorber(
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
               sliver: SliverAppBar(
+                automaticallyImplyLeading: false,
+                title: const HomeSearchBar(),
+                actions: [
+                  HomeActionIcon(
+                    data: data,
+                  )
+                ],
                 backgroundColor:
                     innerBoxIsScrolled ? whiteColor : Colors.transparent,
                 pinned: true,

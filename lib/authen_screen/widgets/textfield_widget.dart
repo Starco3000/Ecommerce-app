@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 
 // Widget textFieldWidget({String? title, String? hint, controller}) {

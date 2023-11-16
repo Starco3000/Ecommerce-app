@@ -17,12 +17,13 @@ class ProfileMenu extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
       child: OutlinedButton(
           style: ButtonStyle(
-            padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(20)),
+            padding:
+                MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(20)),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15))),
             backgroundColor:
-                MaterialStateProperty.all<Color>(Color(0xFFF5F6F9)),
+                MaterialStateProperty.all<Color>(const Color(0xFFF5F6F9)),
             foregroundColor: MaterialStateProperty.all<Color>(dartgreyColor),
           ),
           onPressed: press,

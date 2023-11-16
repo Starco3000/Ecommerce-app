@@ -20,8 +20,8 @@ Widget otherProduct(
         mainAxisExtent: itemHeight ?? 200),
     itemBuilder: (context, index) {
       return Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: lightGreyColor, width: 2)),
+        // decoration:
+        //     BoxDecoration(border: Border.all(color: lightGreyColor, width: 2)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,7 +33,7 @@ Widget otherProduct(
             ),
             const Spacer(),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -41,7 +41,7 @@ Widget otherProduct(
                       .fontFamily(semibold)
                       .color(dartgreyColor)
                       .make(),
-                  10.heightBox,
+                  15.heightBox,
                   itemPrice!.text
                       .color(primaryColor)
                       .fontFamily(bold)
@@ -54,7 +54,7 @@ Widget otherProduct(
         )
             .box
             .white
-            .margin(const EdgeInsets.symmetric(horizontal: 4))
+            // .margin(const EdgeInsets.symmetric(horizontal: 4))
             .padding(const EdgeInsets.all(4))
             .make(),
       );

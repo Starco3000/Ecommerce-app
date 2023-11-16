@@ -1,11 +1,15 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/mainbutton_widget.dart';
+import 'package:get/get.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
+  final dynamic data;
+  const BottomNavBar({Key? key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<ProductController>();
     return SizedBox(
       width: double.infinity,
       height: 60,
@@ -31,18 +35,32 @@ class BottomNavBar extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 10),
             color: Colors.grey,
           ),
-          Column(
-            children: [
-              const Icon(
-                Icons.shopping_cart_checkout_outlined,
-                color: primaryColor,
-              ),
-              "Put into Cart".text.color(dartgreyColor).make(),
-            ],
-          )
-              .box
-              .padding(const EdgeInsets.symmetric(vertical: 9, horizontal: 16))
-              .make(),
+          GestureDetector(
+            onTap: () {
+              controller.addToCart(
+                  color: data['p_colors'][controller.colorIndex.value],
+                  context: context,
+                  img: data['p_imgs'][0],
+                  quantity: controller.quantity.value,
+                  sellername: data['p_seller'],
+                  title: data['p_name'],
+                  totalPrice: controller.totalPrice.value);
+              VxToast.show(context, msg: "Added to Cart");
+            },
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  color: primaryColor,
+                ),
+                "Put into Cart".text.color(dartgreyColor).make(),
+              ],
+            )
+                .box
+                .padding(
+                    const EdgeInsets.symmetric(vertical: 9, horizontal: 16))
+                .make(),
+          ),
           Expanded(
             flex: 2,
             child: SizedBox(

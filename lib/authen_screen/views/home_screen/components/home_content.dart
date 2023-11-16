@@ -9,7 +9,8 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[200],
+      // color: Colors.grey[200],
+      color: primaryColor,
       child: Column(
         children: [
           // Featured categories
@@ -55,6 +56,7 @@ class HomeContent extends StatelessWidget {
             ),
           ),
           10.heightBox,
+
           //featured product
           Container(
             padding: const EdgeInsets.all(12),
@@ -66,7 +68,8 @@ class HomeContent extends StatelessWidget {
                 featuredProduct.text
                     .color(primaryColor)
                     .fontFamily(bold)
-                    .size(18)
+                    .fontWeight(FontWeight.w600)
+                    .size(20)
                     .make(),
                 10.heightBox,
                 SingleChildScrollView(
@@ -90,24 +93,27 @@ class HomeContent extends StatelessWidget {
               ],
             ),
           ),
-          5.heightBox,
+          10.heightBox,
+
           //All products section
           Container(
-            color: Colors.grey[200],
+            // color: Colors.grey[200],
+            color: primaryColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  height: 40,
+                  height: 45,
                   width: context.screenWidth,
                   padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: "Recommend Product"
                       .text
                       .color(primaryColor)
                       .fontFamily(bold)
-                      .size(18)
+                      .fontWeight(FontWeight.w600)
+                      .size(22)
                       .make(),
                 ).box.white.make(),
                 5.heightBox,
@@ -115,7 +121,7 @@ class HomeContent extends StatelessWidget {
                     itemCount: 12,
                     column: 2,
                     mainAxis: 8,
-                    crossAxis: 2,
+                    crossAxis: 8,
                     itemHeight: 300,
                     itemImage: imgP5,
                     itemTitle: "Laptop 4GB/64GB",
