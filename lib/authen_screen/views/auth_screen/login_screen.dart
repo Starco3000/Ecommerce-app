@@ -4,6 +4,7 @@ import 'package:ecommerce_flutter_app/authen_screen/views/auth_screen/signup_scr
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/home.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/applogo_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/bg_widget.dart';
+import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/mainbutton_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/textfield_widget.dart';
 import 'package:get/get.dart';
@@ -87,9 +88,7 @@ class LoginScreen extends StatelessWidget {
 
                       // Login button
                       controller.isloading.value
-                          ? const CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation(redColor),
-                            )
+                          ? loadingIndicator()
                           : mainButtonWidget(
                               color: primaryColor,
                               textColor: whiteColor,

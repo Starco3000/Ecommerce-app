@@ -45,7 +45,7 @@ const searchBarHint = "Search something ...",
     featuredCategories = "Featured Categories";
 
 // Categories string
-const womanClothing = "Women Clothing",
+const womanClothing = "Women Dress",
     menClothingFashion = "Men Clothing & Fashion",
     compAccess = "Computer & Accessories",
     automobie = "Automobie",
@@ -64,4 +64,9 @@ const video = "Video",
     productsyoumaylike = "Products you may also like";
 
 //Profile string
-const profileTitle = "Profile", logout = "Log out";
+const profileTitle = "Profile",
+    logout = "Log out",
+    myorders = "My Orders",
+    message = "Messages",
+    oldpass = "Old password",
+    newpass = "New password";
