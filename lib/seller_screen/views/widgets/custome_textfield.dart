@@ -3,6 +3,7 @@ import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dar
 
 Widget customTextField({lable, hint, controller, isDesc = false}) {
   return TextFormField(
+    controller: controller,
     maxLines: isDesc ? 4 : 1,
     decoration: InputDecoration(
       isDense: true,

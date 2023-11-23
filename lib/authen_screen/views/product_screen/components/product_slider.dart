@@ -2,7 +2,8 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 
 class ProductSlider extends StatefulWidget {
-  const ProductSlider({super.key});
+  final dynamic data;
+  const ProductSlider({Key? key, this.data}) : super(key: key);
 
   @override
   State<ProductSlider> createState() => _ProductSliderState();
@@ -10,7 +11,6 @@ class ProductSlider extends StatefulWidget {
 
 class _ProductSliderState extends State<ProductSlider> {
   int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -19,13 +19,14 @@ class _ProductSliderState extends State<ProductSlider> {
           autoPlay: true,
           height: 380,
           aspectRatio: 16 / 9,
-          itemCount: 3,
+          itemCount: widget.data["p_imgs"].length,
           viewportFraction: 1.0,
           itemBuilder: (context, index) {
-            return Image.asset(
-              imgCod,
+            return Image.network(
+              widget.data["p_imgs"][index],
               width: double.infinity,
-              fit: BoxFit.cover,
+              // fit: BoxFit.fitHeight,
+              scale: 1.0,
             );
           },
           onPageChanged: (index) {
