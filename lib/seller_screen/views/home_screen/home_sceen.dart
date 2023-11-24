@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: white,
       appBar: appbarWidget(dashboard),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

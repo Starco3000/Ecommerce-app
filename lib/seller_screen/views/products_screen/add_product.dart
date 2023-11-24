@@ -1,4 +1,6 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
+import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/const/colors.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_dropdown.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_images.dart';
@@ -10,68 +12,113 @@ class AddProduct extends StatelessWidget {
   const AddProduct({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: orangeColor,
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(Icons.arrow_back)),
-        title: boldText(text: "Add Product", size: 16.0),
-        actions: [TextButton(onPressed: () {}, child: boldText(text: "Save"))],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              customTextField(hint: "eg.  BMW", lable: "Product name"),
-              10.heightBox,
-              customTextField(
-                  hint: "eg.  nice product",
-                  lable: "Description",
-                  isDesc: true),
-              10.heightBox,
-              customTextField(hint: "eg.  \$300", lable: "Price"),
-              10.heightBox,
-              customTextField(hint: "eg.  30", lable: "Quantities"),
-              10.heightBox,
-              productDropdown(),
-              10.heightBox,
-              const Divider(color: white),
-              boldText(text: "choose product images"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: List.generate(
-                    3, (index) => ProductImage(label: "${index + 1}")),
-              ),
-              5.heightBox,
-              normalText(text: "first image will be your display image"),
-              10.heightBox,
-              Wrap(
-                spacing: 8.0,
-                runSpacing: 8.0,
-                children: List.generate(
-                    9,
-                    (index) => Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            VxBox()
-                                .color(Vx.randomPrimaryColor)
-                                .roundedFull
-                                .size(70, 70)
-                                .make(),
-                            const Icon(
-                              Icons.done,
-                              color: white,
-                            )
-                          ],
-                        )),
-              )
-            ],
+    var controller = Get.find<ProductsController>();
+    return Obx(
+      () => Scaffold(
+        backgroundColor: orangeColor,
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back)),
+          title: boldText(text: "Add Product", size: 16.0),
+          actions: [
+            controller.isloading.value
+                ? loadingIndicator()
+                : TextButton(
+                    onPressed: () async {
+                      controller.isloading(true);
+                      await controller.uploadImages();
+                      await controller.uploadProduct(context);
+                      Get.back();
+                    },
+                    child: boldText(text: "Save"))
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                customTextField(
+                    hint: "eg.  BMW",
+                    lable: "Product name",
+                    controller: controller.pnameController),
+                10.heightBox,
+                customTextField(
+                    hint: "eg.  nice product",
+                    lable: "Description",
+                    isDesc: true,
+                    controller: controller.pdescController),
+                10.heightBox,
+                customTextField(
+                    hint: "eg.  \$300",
+                    lable: "Price",
+                    controller: controller.ppriceController),
+                10.heightBox,
+                customTextField(
+                    hint: "eg.  30",
+                    lable: "Quantities",
+                    controller: controller.pquantityController),
+                10.heightBox,
+                productDropdown("Category", controller.categoryList,
+                    controller.categoryvalue, controller),
+                10.heightBox,
+                const Divider(color: white),
+                productDropdown("Subcategory", controller.subcategoryList,
+                    controller.subcategoryvalue, controller),
+                boldText(text: "choose product images"),
+                Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: List.generate(
+                        3,
+                        (index) => controller.pImagesList[index] != null
+                            ? Image.file(controller.pImagesList[index],
+                                    width: 100)
+                                .onTap(() {
+                                controller.pickImage(index, context);
+                              })
+                            : ProductImage(label: "${index + 1}").onTap(() {
+                                controller.pickImage(index, context);
+                              })),
+                  ),
+                ),
+                5.heightBox,
+                normalText(text: "first image will be your display image"),
+                10.heightBox,
+                Obx(
+                  () => Wrap(
+                    spacing: 8.0,
+                    runSpacing: 8.0,
+                    children: List.generate(
+                        9,
+                        (index) => Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                VxBox()
+                                    .color(Vx.randomPrimaryColor)
+                                    .roundedFull
+                                    .size(65, 65)
+                                    .make()
+                                    .onTap(() {
+                                  controller.selectedColorIndex.value = index;
+                                }),
+                                controller.selectedColorIndex.value == index
+                                    ? const Icon(
+                                        Icons.done,
+                                        color: white,
+                                      )
+                                    : const SizedBox(),
+                              ],
+                            )),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
@@ -5,17 +6,19 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  final dynamic data;
+  const ProductDetails({super.key, this.data});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
               Get.back();
             },
             icon: const Icon(Icons.arrow_back, color: darkGrey)),
-        title: boldText(text: "Product title", color: fontGrey, size: 16.0),
+        title: boldText(text: "${data['p_name']}", color: fontGrey, size: 16.0),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -24,12 +27,12 @@ class ProductDetails extends StatelessWidget {
             VxSwiper.builder(
                 autoPlay: true,
                 height: 350,
-                itemCount: 3,
+                itemCount: data['p_imgs'].length,
                 aspectRatio: 16 / 9,
                 viewportFraction: 1.0,
                 itemBuilder: (context, index) {
                   return Image.network(
-                    imgProduct,
+                    data['p_imgs'][index],
                     width: double.infinity,
                     fit: BoxFit.cover,
                   );
@@ -40,14 +43,20 @@ class ProductDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  boldText(text: "Product title", color: fontGrey, size: 16.0),
+                  boldText(
+                      text: "${data['p_name']}", color: fontGrey, size: 16.0),
                   10.heightBox,
                   Row(
                     children: [
-                      boldText(text: "Category", color: fontGrey, size: 16.0),
+                      boldText(
+                          text: "${data['p_category']}",
+                          color: fontGrey,
+                          size: 16.0),
                       10.widthBox,
                       normalText(
-                          text: "Subcategory", color: fontGrey, size: 16.0)
+                          text: "${data['p_subcategory']}",
+                          color: fontGrey,
+                          size: 16.0)
                     ],
                   ),
                   10.heightBox,
@@ -62,7 +71,8 @@ class ProductDetails extends StatelessWidget {
                     size: 25,
                   ),
                   10.heightBox,
-                  boldText(text: "\$300.0", color: red, size: 16.0),
+                  boldText(
+                      text: "\$${data['p_price']}", color: red, size: 16.0),
                   Container(
                       padding: const EdgeInsets.all(8.0),
                       width: double.infinity,
@@ -89,22 +99,16 @@ class ProductDetails extends StatelessWidget {
                                   text: "Color: ", color: fontGrey, size: 16.0),
                               Expanded(
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    const CircleAvatar(
-                                      backgroundColor: Colors.red,
-                                      radius: 15.0,
-                                    ).onTap(() {}),
-                                    const CircleAvatar(
-                                      backgroundColor: Colors.green,
-                                      radius: 15.0,
-                                    ).onTap(() {}),
-                                    const CircleAvatar(
-                                      backgroundColor: Colors.blue,
-                                      radius: 15.0,
-                                    ).onTap(() {}),
-                                  ],
+                                  children: List.generate(
+                                      data['p_colors'].length,
+                                      (index) => VxBox()
+                                          .size(40, 40)
+                                          .roundedFull
+                                          .color(Color(data['p_colors'][index]))
+                                          .margin(const EdgeInsets.symmetric(
+                                              horizontal: 4))
+                                          .make()
+                                          .onTap(() {})),
                                 ),
                               ),
                             ],
@@ -117,7 +121,7 @@ class ProductDetails extends StatelessWidget {
                                   color: fontGrey,
                                   size: 16.0),
                               normalText(
-                                  text: "20 items",
+                                  text: "${data['p_quantity']} items",
                                   color: fontGrey,
                                   size: 16.0),
                             ],
@@ -127,7 +131,7 @@ class ProductDetails extends StatelessWidget {
                   20.heightBox,
                   boldText(text: "Description", color: fontGrey),
                   10.heightBox,
-                  normalText(text: "mô tả của sản phẩm này", color: fontGrey)
+                  normalText(text: "${data['p_desc']}", color: fontGrey)
                 ],
               ),
             )
