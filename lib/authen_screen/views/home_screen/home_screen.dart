@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/controllers/home_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/home_action_icon.dart';
 
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/home_content.dart';
@@ -12,7 +13,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Data in HomeActionIcon: $data");
     // return Container(
     //   padding: const EdgeInsets.all(12),
     //   color: lightGreyColor,
@@ -303,7 +303,6 @@ class HomeScreen extends StatelessWidget {
     //   ),
     // );
     // final ScrollController _scrollController = ScrollController();
-    // var controller = Get.find<ProductController>();
     return Scaffold(
       backgroundColor: whiteColor,
       body: NestedScrollView(

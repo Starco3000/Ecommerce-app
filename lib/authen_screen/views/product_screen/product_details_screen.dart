@@ -9,7 +9,7 @@ import 'package:ecommerce_flutter_app/authen_screen/views/product_screen/compone
 import 'package:get/get.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  final String? title;
+  final String title;
   final dynamic data;
   const ProductDetailsScreen({Key? key, required this.title, this.data})
       : super(key: key);
@@ -50,17 +50,10 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // title: Text(
-                  //   title!,
-                  //   style: const TextStyle(color: dartgreyColor),
-                  // ),
-
                   title: const ProductSearchBar(),
-
                   backgroundColor:
                       innerBoxIsScrolled ? whiteColor : Colors.transparent,
                   actions: const [AppBarActions()],
-
                   pinned: true,
                   // Thêm thuộc tính snap
                 ),
@@ -76,14 +69,12 @@ class ProductDetailsScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Other content elements
-                      title!.text
+                      //Product name
+                      title.text
                           .size(20)
                           .color(dartgreyColor)
                           .fontFamily(semibold)
                           .make(),
-                      // Other content elements
-
                       10.heightBox,
                       Row(
                         children: [
@@ -291,13 +282,8 @@ class ProductDetailsScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             featuredProducts(
-                                itemCount: 6,
-                                image: imgB1,
-                                width: 130,
-                                title: "Laptop 8GB/64GB",
                                 fontTitle: semibold,
                                 colorTitle: dartgreyColor,
-                                price: "\$600",
                                 fontPrice: bold,
                                 colorPrice: primaryColor),
                           ],

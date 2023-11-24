@@ -75,7 +75,7 @@ class CatetoryItemProduct extends StatelessWidget {
                           .size(16)
                           .make(),
                     ],
-                  )
+                  ),
                 ],
               )
                   .box
@@ -87,10 +87,12 @@ class CatetoryItemProduct extends StatelessWidget {
                   .make()
                   .onTap(() {
                 controller.checkIfFav(data[index]);
-                Get.to(() => ProductDetailsScreen(
-                      title: "${data[index]['p_name']}",
-                      data: data[index],
-                    ));
+                Get.to(
+                  () => ProductDetailsScreen(
+                    title: "${data[index]['p_name']}",
+                    data: data[index],
+                  ),
+                );
               });
             }),
       ),

@@ -68,5 +68,11 @@ const profileTitle = "Profile",
     logout = "Log out",
     myorders = "My Orders",
     message = "Messages",
+    mywishlist = "My Wishlist",
+    myaccount = "My Account",
+    settings = "Settings",
     oldpass = "Old password",
     newpass = "New password";
+
+//Payment string
+const paypal = "Paypal", stripe = "Stripe", cod = "Cash on deliovery";

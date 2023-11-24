@@ -9,8 +9,7 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.grey[200],
-      color: primaryColor,
+      color: Colors.grey[300],
       child: Column(
         children: [
           // Featured categories
@@ -59,14 +58,13 @@ class HomeContent extends StatelessWidget {
 
           //featured product
           Container(
+            color: primaryColor,
             padding: const EdgeInsets.all(12),
             width: context.screenWidth,
-            decoration: const BoxDecoration(color: whiteColor),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                featuredProduct.text
-                    .color(primaryColor)
+                featuredProduct.text.white
                     .fontFamily(bold)
                     .fontWeight(FontWeight.w600)
                     .size(20)
@@ -78,13 +76,8 @@ class HomeContent extends StatelessWidget {
                   child: Column(
                     children: [
                       featuredProducts(
-                          itemCount: 6,
-                          image: imgB1,
-                          width: 130,
-                          title: "Laptop 8GB/64GB",
                           fontTitle: semibold,
                           colorTitle: dartgreyColor,
-                          price: "\$600",
                           fontPrice: bold,
                           colorPrice: primaryColor),
                     ],
@@ -97,8 +90,7 @@ class HomeContent extends StatelessWidget {
 
           //All products section
           Container(
-            // color: Colors.grey[200],
-            color: primaryColor,
+            color: Colors.grey[300],
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -116,16 +108,12 @@ class HomeContent extends StatelessWidget {
                       .size(22)
                       .make(),
                 ).box.white.make(),
-                5.heightBox,
                 otherProduct(
-                    itemCount: 12,
-                    column: 2,
-                    mainAxis: 8,
-                    crossAxis: 8,
-                    itemHeight: 300,
-                    itemImage: imgP5,
-                    itemTitle: "Laptop 4GB/64GB",
-                    itemPrice: "\$600"),
+                  column: 2,
+                  mainAxis: 8,
+                  crossAxis: 8,
+                  itemHeight: 300,
+                ),
               ],
             ),
           )

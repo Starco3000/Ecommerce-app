@@ -3,8 +3,6 @@ import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/cart_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/services/firestore_services.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/cart_screen/components/cart_bottomnavbar.dart';
-import 'package:ecommerce_flutter_app/authen_screen/views/product_screen/components/product_bottom_navbar.dart';
-import 'package:ecommerce_flutter_app/authen_screen/views/product_screen/product_details_screen.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
 import 'package:get/get.dart';
 
@@ -66,6 +64,8 @@ class CartScreen extends StatelessWidget {
             } else {
               var data = snapshot.data!.docs;
               controller.calculate(data);
+              controller.productSnapshot = data;
+
               return Padding(
                 padding: const EdgeInsets.only(top: 4.0),
                 child: Column(
@@ -77,8 +77,11 @@ class CartScreen extends StatelessWidget {
                               return Container(
                                 color: whiteColor,
                                 child: ListTile(
-                                  leading:
-                                      Image.network("${data[index]['img']}"),
+                                  leading: Image.network(
+                                    "${data[index]['img']}",
+                                    width: 80,
+                                    fit: BoxFit.cover,
+                                  ),
                                   title:
                                       "${data[index]['title']} (x${data[index]['quantity']})"
                                           .text
@@ -100,7 +103,7 @@ class CartScreen extends StatelessWidget {
                                 ),
                               );
                             })),
-                    CartBottomNavBar()
+                    const CartBottomNavBar()
                   ],
                 ),
               );

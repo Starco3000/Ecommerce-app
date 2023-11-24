@@ -37,15 +37,20 @@ class BottomNavBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              controller.addToCart(
-                  color: data['p_colors'][controller.colorIndex.value],
-                  context: context,
-                  img: data['p_imgs'][0],
-                  quantity: controller.quantity.value,
-                  sellername: data['p_seller'],
-                  title: data['p_name'],
-                  totalPrice: controller.totalPrice.value);
-              VxToast.show(context, msg: "Added to Cart");
+              if (controller.quantity.value > 0) {
+                controller.addToCart(
+                    color: data['p_colors'][controller.colorIndex.value],
+                    context: context,
+                    vendorID: data['vendor_id'],
+                    img: data['p_imgs'][0],
+                    quantity: controller.quantity.value,
+                    sellername: data['p_seller'],
+                    title: data['p_name'],
+                    totalPrice: controller.totalPrice.value);
+                VxToast.show(context, msg: "Added to Cart");
+              } else {
+                VxToast.show(context, msg: "At least one product required");
+              }
             },
             child: Column(
               children: [

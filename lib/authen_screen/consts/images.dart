@@ -132,3 +132,4 @@ const imgTwocheckout = "assets/images/twocheckout.png";
 const imgVogue = "assets/images/vogue.png";
 const imgWallet = "assets/images/wallet.png";
 const imgCartEmpty = "assets/images/cart_empty.png";
+const imgEmptyWishlist = "assets/images/empty_wishlist.jpeg";

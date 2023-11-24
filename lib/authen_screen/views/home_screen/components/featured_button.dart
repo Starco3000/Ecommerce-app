@@ -1,10 +1,12 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/category_screen/catetory_details.dart';
+import 'package:get/get.dart';
 
 Widget featuredButton({String? title, String? icon}) {
   return Row(
     children: [
       Image.asset(icon!, width: 60, fit: BoxFit.fill),
-      const SizedBox(width: 10),
+      10.widthBox,
       title!.text.fontFamily(semibold).color(dartgreyColor).make()
     ],
   )
@@ -15,5 +17,8 @@ Widget featuredButton({String? title, String? icon}) {
       .padding(const EdgeInsets.all(4))
       .roundedSM
       .outerShadowSm
-      .make();
+      .make()
+      .onTap(() {
+    Get.to(() => CatetoryDetails(title: title));
+  });
 }

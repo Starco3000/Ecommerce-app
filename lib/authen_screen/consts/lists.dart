@@ -42,3 +42,9 @@ const productDetailButtonsList = [
   returnpolicy,
   supportPolicy
 ];
+
+const profileButtonsList = [myaccount, mywishlist, message, myorders, settings];
+const profileButtonsIcon = [icProfile, icHeart, icMessages, icOrder, icGear];
+
+const paymentMethodsImg = [imgPaypal, imgStripe, imgCod];
+const paymentMethods = [paypal, stripe, cod];

@@ -1,5 +1,6 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/cart_screen/cart_screen.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/chat_screen/messaging_screen.dart';
 import 'package:get/get.dart';
 
 class HomeActionIcon extends StatelessWidget {
@@ -20,10 +21,9 @@ class HomeActionIcon extends StatelessWidget {
           )),
       IconButton(
           onPressed: () {
-            // Get.to(
-            //   () => const MessagesScreen(),
-            //   arguments: [data['p_seller'], data['vender_id']],
-            // );
+            Get.to(
+              () => const MessagesScreen(),
+            );
           },
           icon: const Icon(
             Icons.message_rounded,

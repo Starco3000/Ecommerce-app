@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/category_screen/components/catetory_item.dart';
-import 'package:ecommerce_flutter_app/authen_screen/views/product_screen/product_details_screen.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/bg_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/authen_screen/services/firestore_services.dart';
@@ -20,6 +19,16 @@ class CatetoryDetails extends StatelessWidget {
       context,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: whiteColor,
+                size: 22,
+              )),
           title: title!.text.fontFamily(bold).white.make(),
         ),
         body: StreamBuilder(

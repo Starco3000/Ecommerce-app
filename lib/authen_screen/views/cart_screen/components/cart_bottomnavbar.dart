@@ -1,6 +1,6 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/cart_controller.dart';
-import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/shipping_screen/shipping_screen.dart';
 import 'package:get/get.dart';
 
 class CartBottomNavBar extends StatelessWidget {
@@ -49,8 +49,11 @@ class CartBottomNavBar extends StatelessWidget {
               style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all<Color>(primaryColor)),
-              onPressed: () {},
-              child: "Buying".text.white.fontFamily(semibold).size(16).make(),
+              onPressed: () {
+                Get.to(() => const ShippingDetails());
+              },
+              child:
+                  "Buying now".text.white.fontFamily(semibold).size(16).make(),
             ),
           ),
         ],

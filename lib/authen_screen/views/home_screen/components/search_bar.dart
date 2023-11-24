@@ -1,4 +1,6 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/controllers/home_controller.dart';
+import 'package:get/get.dart';
 
 // Widget searchBar() {
 //   return Container(
@@ -29,7 +31,7 @@ import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 // }
 
 class HomeSearchBar extends StatelessWidget {
-  const HomeSearchBar({super.key});
+  const HomeSearchBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +72,13 @@ class HomeSearchBar extends StatelessWidget {
     //     ),
     //   ),
     // );
+    var controller = Get.find<HomeController>();
+
     return SizedBox(
       width: context.screenWidth,
       height: 45,
       child: TextFormField(
+        controller: controller.searchController,
         decoration: const InputDecoration(
           hintText: "Seach....",
           hintStyle: TextStyle(
@@ -81,13 +86,13 @@ class HomeSearchBar extends StatelessWidget {
           fillColor: searchFieldColor,
           filled: true,
           isDense: true,
-          prefixIcon: Icon(Icons.search),
-          prefixIconColor: greyColor,
+          suffixIcon: Icon(Icons.search),
+          suffixIconColor: greyColor,
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 4),
         ),
         showCursor: false,
-      ),
+      ).box.outerShadowSm.make(),
     );
   }
 }

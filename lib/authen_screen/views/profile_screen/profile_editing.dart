@@ -23,7 +23,14 @@ class EditProfileScreen extends StatelessWidget {
       context,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(),
+        appBar: AppBar(
+            automaticallyImplyLeading: false,
+            leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back, color: whiteColor),
+            )),
         body: Obx(
           () => Column(
             mainAxisSize: MainAxisSize.min,

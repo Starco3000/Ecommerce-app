@@ -1,6 +1,6 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
-import 'package:ecommerce_flutter_app/authen_screen/views/chat_screen/messages_screen.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/chat_screen/chat_screen.dart';
 import 'package:get/get.dart';
 
 class ProductRating extends StatelessWidget {
@@ -87,7 +87,7 @@ class ProductRating extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       Get.to(
-                        () => const MessagesScreen(),
+                        () => const ChatScreen(),
                         arguments: [data['p_seller'], data['vendor_id']],
                       );
                     },
@@ -102,10 +102,9 @@ class ProductRating extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          width: context.screenHeight,
-          height: 1,
-          color: Colors.grey.shade300,
+        Divider(
+          color: Colors.grey[300],
+          thickness: 1.0,
         )
       ],
     );
