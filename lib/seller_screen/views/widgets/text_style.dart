@@ -1,4 +1,4 @@
-import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 
 Widget normalText({
   text,

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';

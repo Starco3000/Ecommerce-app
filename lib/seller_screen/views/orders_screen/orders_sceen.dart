@@ -1,4 +1,4 @@
-import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/orders_screen/order_details.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/appbar_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
@@ -9,7 +9,7 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+        backgroundColor: white,
         appBar: appbarWidget(orders),
         body: Padding(
             padding: const EdgeInsets.all(8.0),

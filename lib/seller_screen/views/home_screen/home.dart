@@ -1,6 +1,6 @@
 import 'package:ecommerce_flutter_app/seller_screen/controllers/home_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/home_screen/home_sceen.dart';
-import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/orders_screen/orders_sceen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/products_sceen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/profile_screen/profile_screen.dart';

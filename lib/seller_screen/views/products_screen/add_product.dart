@@ -1,10 +1,10 @@
-import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
-import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
-import 'package:ecommerce_flutter_app/seller_screen/const/colors.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/colors.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_dropdown.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_images.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/custome_textfield.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
 

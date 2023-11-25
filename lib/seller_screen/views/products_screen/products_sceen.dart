@@ -1,12 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
-import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
-import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/services/store_services.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/add_product.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/product_detail.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/appbar_widget.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
 

@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
-import 'package:ecommerce_flutter_app/seller_screen/const/const.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/appbar_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/dashboard_button.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
