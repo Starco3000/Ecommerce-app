@@ -12,6 +12,7 @@ class CatetoryItemProduct extends StatelessWidget {
     var controller = Get.find<ProductController>();
     return Expanded(
       child: Container(
+        padding: const EdgeInsets.all(4),
         color: lightGreyColor,
         child: GridView.builder(
             physics: const BouncingScrollPhysics(),
@@ -19,12 +20,12 @@ class CatetoryItemProduct extends StatelessWidget {
             itemCount: data.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 4,
                 mainAxisExtent: 280),
             itemBuilder: (context, index) {
               return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.network(
@@ -34,13 +35,17 @@ class CatetoryItemProduct extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                   5.heightBox,
-                  "${data[index]['p_name']}"
-                      .text
-                      .fontFamily(semibold)
-                      .color(dartgreyColor)
-                      .size(16)
-                      .make(),
-                  5.heightBox,
+                  Row(
+                    children: [
+                      "${data[index]['p_name']}"
+                          .text
+                          .fontFamily(semibold)
+                          .color(dartgreyColor)
+                          .size(16)
+                          .make(),
+                    ],
+                  ),
+                  3.heightBox,
                   Row(
                     children: [
                       const Icon(Icons.star, color: golden, size: 18),

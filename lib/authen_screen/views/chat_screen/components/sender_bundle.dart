@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart' as intl;
 
 class SenderBundle extends StatelessWidget {

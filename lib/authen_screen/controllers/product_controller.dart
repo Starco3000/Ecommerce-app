@@ -65,6 +65,8 @@ class ProductController extends GetxController {
     }).catchError((error) {
       VxToast.show(context, msg: error.toString());
     });
+    // Update the cart count in AuthController
+    // Get.find<AuthController>().cartsCount.value += 1;
   }
 
   resetValues() {
@@ -78,6 +80,8 @@ class ProductController extends GetxController {
       'p_wishlist': FieldValue.arrayUnion([currentUser!.uid])
     }, SetOptions(merge: true));
     isFav(true);
+    // Update the wishlist count in AuthController
+    // Get.find<AuthController>().wishlistsCount.value += 1;
     VxToast.show(context, msg: "Added to wishlist");
   }
 
@@ -86,6 +90,8 @@ class ProductController extends GetxController {
       'p_wishlist': FieldValue.arrayRemove([currentUser!.uid])
     }, SetOptions(merge: true));
     isFav(false);
+    // Update the wishlist count in AuthController
+    // Get.find<AuthController>().wishlistsCount.value -= 1;
     VxToast.show(context, msg: "Remove from wishlist");
   }
 

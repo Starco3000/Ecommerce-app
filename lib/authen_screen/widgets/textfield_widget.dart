@@ -1,29 +1,7 @@
-// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, avoid_print
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
-
-// Widget textFieldWidget({String? title, String? hint, controller}) {
-//   return Column(
-//     crossAxisAlignment: CrossAxisAlignment.start,
-//     children: [
-//       title!.text.color(primaryColor).fontFamily(semibold).size(16).make(),
-//       5.heightBox,
-//       TextFormField(
-//         controller: controller,
-//         decoration: InputDecoration(
-//             hintStyle: TextStyle(fontFamily: semibold, color: textfieldColor),
-//             hintText: emailHint,
-//             isDense: true,
-//             fillColor: lightGreyColor,
-//             filled: true,
-//             border: InputBorder.none,
-//             focusedBorder:
-//                 OutlineInputBorder(borderSide: BorderSide(color: primaryColor)),
-//             contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 8)),
-//       ),
-//       5.heightBox,
-//     ],
-//   );
-// }
+import 'package:ecommerce_flutter_app/authen_screen/controllers/auth_controller.dart';
+import 'package:get/get.dart';
 
 class TextFieldWidget extends StatefulWidget {
   final String? title;
@@ -44,6 +22,7 @@ class TextFieldWidget extends StatefulWidget {
 }
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
+  var controller = Get.find<AuthController>();
   bool _isPasswordVisible = false;
 
   @override
@@ -83,6 +62,42 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   )
                 : null,
           ),
+          validator: (value) {
+            print("Title: ${widget.title}, Value: $value");
+
+            bool emailValid = RegExp(
+                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                .hasMatch(value!);
+
+            // if (widget.title == name && value!.isEmpty) {
+            //   return "Please enter the username";
+            // }
+            if (widget.title == email && value.isEmpty) {
+              return "Please enter the email!";
+            } else if (widget.title == email && !emailValid) {
+              return "Please enter valid email";
+            }
+            if (widget.title == password && value.isEmpty) {
+              return "Please enter the password!";
+            } else if (widget.title == password && value.length < 6) {
+              return "Password should be 6 characters or more";
+            }
+
+            // if (widget.title == retypePassword) {
+            //   if (value == null || value.isEmpty) {
+            //     return "This field cannot be empty";
+            //   } else {
+            //     print("Entered value: $value");
+            //     print(
+            //         "Original password: ${controller.passwordController.text.trim()}");
+            //     if (value.trim() != controller.passwordController.text.trim()) {
+            //       return "Password does not match";
+            //     }
+            //   }
+            // }
+
+            return null;
+          },
         ),
         5.heightBox,
       ],

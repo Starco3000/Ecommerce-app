@@ -1,13 +1,18 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/featured_catetory.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/featured_product.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/other_product.dart';
+import 'package:get/get.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProductController());
     return Container(
       color: Colors.grey[300],
       child: Column(

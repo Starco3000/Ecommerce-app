@@ -1,6 +1,7 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/orders_screen/components/order_place_detail.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/orders_screen/components/orders_status.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart' as intl;
 
 class OrdersDetails extends StatelessWidget {

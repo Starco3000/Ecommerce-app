@@ -20,6 +20,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   bool? isCheck = false;
   var controller = Get.put(AuthController());
+  // final formKey = GlobalKey<FormState>();
 
   //text controllers
   var nameController = TextEditingController();
@@ -52,123 +53,129 @@ class _SignupScreenState extends State<SignupScreen> {
                 Obx(
                   () => Column(
                     children: [
-                      "Resiger".text.fontFamily(bold).black.size(25).make(),
+                      "Sign Up".text.fontFamily(bold).black.size(25).make(),
                       10.heightBox,
-                      TextFieldWidget(
-                          title: name,
-                          hint: nameHint,
-                          controller: nameController,
-                          obscureText: false),
-                      TextFieldWidget(
-                          title: email,
-                          hint: emailHint,
-                          controller: emailController,
-                          obscureText: false),
-                      TextFieldWidget(
-                          title: password,
-                          hint: passHint,
-                          controller: passwordController,
-                          obscureText: true),
-                      TextFieldWidget(
-                          title: retypePassword,
-                          hint: passHint,
-                          controller: retypePasswordController,
-                          obscureText: true),
-                      15.heightBox,
-
-                      // Privacy Policy
-                      Row(
+                      Column(
                         children: [
-                          Checkbox(
-                            activeColor: primaryColor,
-                            checkColor: whiteColor,
-                            value: isCheck,
-                            onChanged: (newValue) {
-                              setState(() {
-                                isCheck = newValue;
-                              });
-                            },
-                          ),
-                          10.widthBox,
-                          Expanded(
-                            child: RichText(
-                                text: const TextSpan(children: [
-                              TextSpan(
-                                  text: "I agree to the ",
-                                  style: TextStyle(
-                                      fontFamily: regular,
-                                      color: dartgreyColor)),
-                              TextSpan(
-                                text: termAndCond,
-                                style: TextStyle(
-                                  fontFamily: regular,
-                                  color: primaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: " & ",
-                                style: TextStyle(
-                                  fontFamily: regular,
-                                  color: primaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: privacyPolicy,
-                                style: TextStyle(
-                                  fontFamily: regular,
-                                  color: primaryColor,
-                                ),
-                              )
-                            ])),
-                          )
-                        ],
-                      ),
+                          TextFieldWidget(
+                              title: name,
+                              hint: nameHint,
+                              controller: nameController,
+                              obscureText: false),
+                          TextFieldWidget(
+                              title: email,
+                              hint: emailHint,
+                              controller: emailController,
+                              obscureText: false),
+                          TextFieldWidget(
+                              title: password,
+                              hint: passHint,
+                              controller: passwordController,
+                              obscureText: true),
+                          TextFieldWidget(
+                              title: retypePassword,
+                              hint: passHint,
+                              controller: retypePasswordController,
+                              obscureText: true),
+                          15.heightBox,
 
-                      // Login button
-                      controller.isloading.value
-                          ? loadingIndicator()
-                          : mainButtonWidget(
-                              color: isCheck == true
-                                  ? primaryColor
-                                  : Colors.grey[400],
-                              textColor: whiteColor,
-                              title: signup,
-                              onPress: () async {
-                                if (isCheck != false) {
-                                  controller.isloading(true);
-                                  try {
-                                    await controller
-                                        .signupMethod(
-                                            context: context,
-                                            email: emailController.text,
-                                            password: passwordController.text)
-                                        .then((value) {
-                                      return controller.storeUserData(
-                                          email: emailController.text,
-                                          password: passwordController.text,
-                                          name: nameController.text);
-                                    }).then((value) {
-                                      VxToast.show(context, msg: loggedin);
-                                      Get.offAll(() => const Home());
-                                    });
-                                  } catch (e) {
-                                    auth.signOut();
-                                    VxToast.show(context, msg: e.toString());
-                                    controller.isloading(false);
-                                  }
-                                }
-                              }).box.width(context.screenWidth - 50).make(),
-                      5.heightBox,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          loginAccount.text.color(greyColor).make(),
-                          const SizedBox(width: 5),
-                          InkWell(
-                            onTap: () {
-                              Get.back();
-                            },
-                            child: login.text.color(Colors.blue).make(),
+                          // Privacy Policy
+                          Row(
+                            children: [
+                              Checkbox(
+                                activeColor: primaryColor,
+                                checkColor: whiteColor,
+                                value: isCheck,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    isCheck = newValue;
+                                  });
+                                },
+                              ),
+                              10.widthBox,
+                              Expanded(
+                                child: RichText(
+                                    text: const TextSpan(children: [
+                                  TextSpan(
+                                      text: "I agree to the ",
+                                      style: TextStyle(
+                                          fontFamily: regular,
+                                          color: dartgreyColor)),
+                                  TextSpan(
+                                    text: termAndCond,
+                                    style: TextStyle(
+                                      fontFamily: regular,
+                                      color: primaryColor,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: " & ",
+                                    style: TextStyle(
+                                      fontFamily: regular,
+                                      color: primaryColor,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: privacyPolicy,
+                                    style: TextStyle(
+                                      fontFamily: regular,
+                                      color: primaryColor,
+                                    ),
+                                  )
+                                ])),
+                              )
+                            ],
+                          ),
+
+                          // Login button
+                          controller.isloading.value
+                              ? loadingIndicator()
+                              : mainButtonWidget(
+                                  color: isCheck == true
+                                      ? primaryColor
+                                      : Colors.grey[400],
+                                  textColor: whiteColor,
+                                  title: signup,
+                                  onPress: () async {
+                                    if (isCheck == true) {
+                                      controller.isloading(true);
+                                      try {
+                                        await controller
+                                            .signupMethod(
+                                                context: context,
+                                                email: emailController.text,
+                                                password:
+                                                    passwordController.text)
+                                            .then((value) {
+                                          return controller.storeUserData(
+                                              email: emailController.text,
+                                              password: passwordController.text,
+                                              name: nameController.text);
+                                        }).then((value) {
+                                          VxToast.show(context, msg: loggedin);
+                                          Get.offAll(() => const Home());
+                                        });
+                                      } catch (e) {
+                                        auth.signOut();
+                                        VxToast.show(context,
+                                            msg: e.toString());
+                                        controller.isloading(false);
+                                      }
+                                    }
+                                  }).box.width(context.screenWidth - 50).make(),
+                          5.heightBox,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              loginAccount.text.color(greyColor).make(),
+                              const SizedBox(width: 5),
+                              InkWell(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: login.text.color(Colors.blue).make(),
+                              ),
+                            ],
                           ),
                         ],
                       ),
