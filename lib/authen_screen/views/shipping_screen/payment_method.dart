@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/cart_controller.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/home.dart';

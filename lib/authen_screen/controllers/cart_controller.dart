@@ -35,6 +35,8 @@ class CartController extends GetxController {
   placeMyOrder({required orderPaymentMethod, required totalAmount}) async {
     placingOrder(true);
     await getProductDetails();
+    // Update the order count in AuthController
+    // Get.find<AuthController>().ordersCount.value += 1;
     await firestore.collection(ordersCollection).doc().set({
       'order_code': "233981237",
       'order_date': FieldValue.serverTimestamp(),
@@ -76,5 +78,7 @@ class CartController extends GetxController {
     for (var i = 0; i < productSnapshot.length; i++) {
       firestore.collection(cartCollection).doc(productSnapshot[i].id).delete();
     }
+    // Update the cart count in AuthController
+    // Get.find<AuthController>().cartsCount.value = 0;
   }
 }

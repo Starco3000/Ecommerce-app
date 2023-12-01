@@ -13,14 +13,12 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AuthController());
     return StreamBuilder(
       stream: FirestoreServices.getUser(currentUser!.uid),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
-          return const Center(
-            child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(primaryColor)),
-          );
+          return Center(child: loadingIndicator());
         } else {
           var data = snapshot.data!.docs[0];
 
@@ -65,8 +63,7 @@ class Body extends StatelessWidget {
                         style: OutlinedButton.styleFrom(
                             side: const BorderSide(color: whiteColor)),
                         onPressed: () async {
-                          await Get.put(AuthController())
-                              .signoutMethod(context);
+                          await controller.signoutMethod(context);
                           Get.offAll(() => const LoginScreen());
                         },
                         child: logout.text.fontFamily(semibold).white.make())
