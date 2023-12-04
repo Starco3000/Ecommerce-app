@@ -26,6 +26,7 @@ class ProductsController extends GetxController {
   var categoryvalue = ''.obs;
   var subcategoryvalue = ''.obs;
   var selectedColorIndex = 0.obs;
+  var newImagesList = List<File?>.filled(3, null);
 
   getCategories() async {
     var data = await rootBundle
@@ -44,8 +45,10 @@ class ProductsController extends GetxController {
   populateSubcategory(cat) {
     subcategoryList.clear();
     var data = category.where((element) => element.name == cat).toList();
-    for (var i = 0; i < data.first.subcategory.length; i++) {
-      subcategoryList.add(data.first.subcategory[i]);
+    if (data.isNotEmpty) {
+      for (var i = 0; i < data.first.subcategory.length; i++) {
+        subcategoryList.add(data.first.subcategory[i]);
+      }
     }
   }
 
@@ -57,6 +60,20 @@ class ProductsController extends GetxController {
         return;
       } else {
         pImagesList[index] = File(img.path);
+      }
+    } catch (e) {
+      VxToast.show(context, msg: e.toString());
+    }
+  }
+
+  void pickEditImage(index, context) async {
+    try {
+      final img = await ImagePicker()
+          .pickImage(source: ImageSource.gallery, imageQuality: 80);
+      if (img == null) {
+        return;
+      } else {
+        newImagesList[index] = File(img.path);
       }
     } catch (e) {
       VxToast.show(context, msg: e.toString());
@@ -97,5 +114,49 @@ class ProductsController extends GetxController {
     });
     isloading(false);
     VxToast.show(context, msg: "Product uploaded");
+  }
+
+  updateProduct(String docId, BuildContext context) async {
+    var store = firestore.collection(productsCollection).doc(docId);
+    await store.update({
+      'p_category': categoryvalue.value,
+      'p_subcategory': subcategoryvalue.value,
+      'p_desc': pdescController.text,
+      'p_name': pnameController.text,
+      'p_price': ppriceController.text,
+      'p_quantity': pquantityController.text,
+      'vendor_id': currentUser?.uid,
+      'p_imgs': FieldValue.arrayUnion(pImagesLinks),
+    });
+    VxToast.show(context, msg: "Product updated");
+  }
+
+  removeProduct(docId) async {
+    await firestore.collection(productsCollection).doc(docId).delete();
+  }
+
+  addFeature(docId) async {
+    await firestore.collection(productsCollection).doc(docId).set(
+        {'featured_id': currentUser!.uid, 'is_featured': true},
+        SetOptions(merge: true));
+  }
+
+  removeFeature(docId) async {
+    await firestore.collection(productsCollection).doc(docId).set(
+        {'featured_id': '', 'is_featured': false}, SetOptions(merge: true));
+  }
+
+  void setInitialValues(dynamic productData) {
+    pnameController.text = productData['p_name'];
+    pdescController.text = productData['p_desc'];
+    ppriceController.text = productData['p_price'];
+    pquantityController.text = productData['p_quantity'];
+    // thêm các trường khác nếu cần
+  }
+
+  void setInitialImages(List<String> imageUrls) {
+    for (var i = 0; i < imageUrls.length; i++) {
+      pImagesList[i] = imageUrls[i];
+    }
   }
 }

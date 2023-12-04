@@ -1,19 +1,28 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
-import 'package:ecommerce_flutter_app/seller_screen/consts/colors.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_dropdown.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_images.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/custome_textfield.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
-class AddProduct extends StatelessWidget {
-  const AddProduct({super.key});
+class EditProduct extends StatelessWidget {
+  final dynamic data;
+
+  const EditProduct({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<ProductsController>();
+    controller.setInitialValues(data);
+    controller.getCategories().then((_) {
+      controller.populateCategoryList();
+      controller.populateSubcategory(controller.categoryvalue.value);
+    });
     return Obx(
       () => Scaffold(
         backgroundColor: orangeColor,
@@ -23,7 +32,7 @@ class AddProduct extends StatelessWidget {
                 Get.back();
               },
               icon: const Icon(Icons.arrow_back)),
-          title: boldText(text: "Add Product", size: 16.0),
+          title: boldText(text: "Edit Product", size: 16.0),
           actions: [
             controller.isloading.value
                 ? loadingIndicator()
@@ -31,7 +40,7 @@ class AddProduct extends StatelessWidget {
                     onPressed: () async {
                       controller.isloading(true);
                       await controller.uploadImages();
-                      await controller.uploadProduct(context);
+                      await controller.updateProduct(data.id, context);
                       Get.back();
                     },
                     child: boldText(text: "Save"))
@@ -53,8 +62,8 @@ class AddProduct extends StatelessWidget {
                 customTextField(
                     hint: "eg.  nice product",
                     lable: "Description",
-                    isDesc: true,
                     style: TextStyle(color: Colors.white),
+                    isDesc: true,
                     controller: controller.pdescController),
                 10.heightBox,
                 customTextField(
@@ -65,8 +74,8 @@ class AddProduct extends StatelessWidget {
                 10.heightBox,
                 customTextField(
                     hint: "eg.  30",
-                    style: TextStyle(color: Colors.white),
                     lable: "Quantities",
+                    style: TextStyle(color: Colors.white),
                     controller: controller.pquantityController),
                 10.heightBox,
                 productDropdown("Category", controller.categoryList,

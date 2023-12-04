@@ -2,13 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   var isloading = false.obs;
 
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-
   Future<UserCredential?> loginMethod({context}) async {
     UserCredential? userCredential;
 
@@ -50,10 +50,10 @@ class AuthController extends GetxController {
     });
   }
 
-  //signout Method
   signoutMethod(context) async {
     try {
       await auth.signOut();
+      isloading.value = false;
     } catch (e) {
       VxToast.show(context, msg: e.toString());
     }

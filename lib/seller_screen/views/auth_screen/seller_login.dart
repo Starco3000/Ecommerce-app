@@ -1,21 +1,25 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/auth_controller.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/seller_login.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/login_screen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/signup_screen.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/home_screen/home.dart';
+
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/applogo_widget%20copy.dart';
+
+import 'package:ecommerce_flutter_app/seller_screen/views/home_screen/home.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/bg_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/mainbutton_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/textfield_widget.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SellerLogin extends StatelessWidget {
+  const SellerLogin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(AuthController());
+    var authController = Get.put(AuthController());
 
     //text controllers
 
@@ -47,12 +51,12 @@ class LoginScreen extends StatelessWidget {
                           title: email,
                           hint: emailHint,
                           obscureText: false,
-                          controller: controller.emailController),
+                          controller: authController.emailController),
                       TextFieldWidget(
                           title: password,
                           hint: passHint,
                           obscureText: true,
-                          controller: controller.passwordController),
+                          controller: authController.passwordController),
                       5.heightBox,
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,79 +76,65 @@ class LoginScreen extends StatelessWidget {
                                   .make(),
                             ),
 
-                            // Switch to seller
+                            // Switch to user
                             InkWell(
                               onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const SellerLogin()),
+                                          const LoginScreen()),
                                 );
                               },
-                              child: seller.text.color(Colors.blue).make(),
+                              child: Auser.text.color(Colors.blue).make(),
                             ),
                           ]),
                       const SizedBox(height: 15),
 
                       // Login button
-                      controller.isloading.value
+                      authController.isloading.value
                           ? loadingIndicator()
                           : mainButtonWidget(
                               color: primaryColor,
                               textColor: whiteColor,
                               title: login,
                               onPress: () async {
-                                controller.isloading(true);
-                                await controller
+                                authController.isloading(true);
+                                await authController
                                     .loginMethod(context: context)
-                                    .then((value) {
+                                    .then((value) async {
                                   if (value != null) {
                                     VxToast.show(context, msg: loggedin);
-                                    Get.off(() => const SellerHome());
+                                    authController.isloading(true);
+                                    await authController
+                                        .loginMethod(context: context)
+                                        .then((value) {
+                                      if (value != null) {
+                                        VxToast.show(context, msg: loggedin);
+                                        Get.offAll(() => const SellerHome());
+                                      } else {
+                                        authController.isloading(false);
+                                      }
+                                    });
                                   } else {
-                                    controller.isloading(false);
+                                    authController.isloading(false);
                                   }
                                 });
-                                // Get.to(() => const Home());
                               }).box.width(context.screenWidth - 50).make(),
                       const SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          createNewAccount.text.color(greyColor).make(),
-                          const SizedBox(width: 5),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignupScreen()),
-                              );
-                            },
-                            child: signup.text.color(Colors.blue).make(),
+                          Flexible(
+                            child: Text(
+                              "If you have any problem, contact with adminitrator",
+                              style: TextStyle(color: greyColor),
+                            ),
                           ),
+                          const SizedBox(width: 5),
                         ],
                       ),
                       const SizedBox(height: 10),
-                      anotherLogin.text.color(Colors.grey[500]).make(),
-                      const SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                            3,
-                            (index) => Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CircleAvatar(
-                                    backgroundColor: lightGreyColor,
-                                    radius: 25,
-                                    child: Image.asset(
-                                      socialIconList[index],
-                                      width: 30,
-                                    ),
-                                  ),
-                                )),
-                      )
                     ],
                   )
                       .box
