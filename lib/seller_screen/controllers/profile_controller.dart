@@ -13,7 +13,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 class ProfileController extends GetxController {
   var profileImgPath = ''.obs;
   var profileImageLink = '';
-
+  late QueryDocumentSnapshot snapshotData;
   var isloading = false.obs;
 
   //textfield

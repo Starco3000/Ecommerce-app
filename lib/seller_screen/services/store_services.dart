@@ -37,6 +37,17 @@ class StoreServices {
         .snapshots();
   }
 
+  static getOrders() {
+    return firestore
+        .collection(ordersCollection)
+        .snapshots();
+  }
+  static getAllMessages({docId}) {
+    return firestore
+        .collection(chatsCollection)
+        
+        .snapshots();
+  }
   static getCounts() async {
     var res = await Future.wait([
       firestore
