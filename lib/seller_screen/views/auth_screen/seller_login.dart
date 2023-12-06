@@ -107,13 +107,17 @@ class SellerLogin extends StatelessWidget {
                                     VxToast.show(context, msg: loggedin);
                                     authController.isloading(true);
                                     await authController
-                                        .loginMethod(context: context)
-                                        .then((value) {
-                                      if (value != null) {
-                                        VxToast.show(context, msg: loggedin);
-                                        Get.offAll(() => const SellerHome());
+                                        .getUserType()
+                                        .then((isSeller) async {
+                                      if (isSeller) {
+                                        Get.off(() => const SellerHome());
                                       } else {
-                                        authController.isloading(false);
+                                        VxToast.show(context,
+                                            msg:
+                                                "Bạn không phải là người bán!");
+                                        await Get.find<AuthController>()
+                                            .signoutMethod(context);
+                                        Get.off(() => LoginScreen());
                                       }
                                     });
                                   } else {

@@ -46,8 +46,15 @@ class AuthController extends GetxController {
       'id': currentUser!.uid,
       'cart_count': "00",
       'wishlist_count': "00",
-      'order_count': "00"
+      'order_count': "00",
+      'isSeller': false,
     });
+  }
+
+  getUserType() async {
+    DocumentSnapshot userDoc =
+        await firestore.collection(usersCollection).doc(currentUser!.uid).get();
+    return userDoc['isSeller'];
   }
 
   signoutMethod(context) async {

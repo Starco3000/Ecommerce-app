@@ -38,16 +38,13 @@ class StoreServices {
   }
 
   static getOrders() {
-    return firestore
-        .collection(ordersCollection)
-        .snapshots();
+    return firestore.collection(ordersCollection).snapshots();
   }
+
   static getAllMessages({docId}) {
-    return firestore
-        .collection(chatsCollection)
-        
-        .snapshots();
+    return firestore.collection(chatsCollection).snapshots();
   }
+
   static getCounts() async {
     var res = await Future.wait([
       firestore
@@ -73,5 +70,11 @@ class StoreServices {
       })
     ]);
     return res;
+  }
+
+  static getPopularProducts(uid) {
+    return firestore
+        .collection(productsCollection)
+        .orderBy('p_wishlist'.length);
   }
 }
