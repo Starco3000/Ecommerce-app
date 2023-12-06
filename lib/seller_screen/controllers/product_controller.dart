@@ -12,6 +12,7 @@ import 'package:path/path.dart';
 
 class ProductsController extends GetxController {
   var isloading = false.obs;
+  var is_sale = false.obs;
   //text field controller
   var pnameController = TextEditingController();
   var pdescController = TextEditingController();
@@ -111,6 +112,7 @@ class ProductsController extends GetxController {
       'vendor_id': currentUser?.uid,
       'featured_id': '',
       'p_rating': '2.0',
+      'is_sale': false
     });
     isloading(false);
     VxToast.show(context, msg: "Product uploaded");
@@ -158,5 +160,10 @@ class ProductsController extends GetxController {
     for (var i = 0; i < imageUrls.length; i++) {
       pImagesList[i] = imageUrls[i];
     }
+  }
+
+  changeStatus({title, status, docID}) async {
+    var store = firestore.collection(productsCollection).doc(docID);
+    await store.set({title: status}, SetOptions(merge: true));
   }
 }
