@@ -3,6 +3,7 @@ import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/services/store_services.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/add_product.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/edit_product.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/product_detail.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/appbar_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
@@ -20,13 +21,14 @@ class ProductsScreen extends StatelessWidget {
         onPressed: () async {
           await controller.getCategories();
           controller.populateCategoryList();
+          controller.isloading(false);
           Get.to(() => const AddProduct());
         },
         child: Icon(Icons.add),
       ),
       appBar: appbarWidget(products),
       body: StreamBuilder(
-        stream: StoreServices.getProducts(currentUser?.uid),
+        stream: StoreServices.getProducts(currentUser!.uid),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return loadingIndicator();
@@ -57,7 +59,11 @@ class ProductsScreen extends StatelessWidget {
                                   text: "\$${data[index]['p_price']}",
                                   color: darkGrey),
                               10.widthBox,
-                              boldText(text: "Featured", color: green)
+                              boldText(
+                                  text: data[index]['is_featured'] == true
+                                      ? "Featured"
+                                      : '',
+                                  color: green)
                             ],
                           ),
                           trailing: VxPopupMenu(
@@ -65,17 +71,51 @@ class ProductsScreen extends StatelessWidget {
                             menuBuilder: () => Column(
                               children: List.generate(
                                 popupMenuTitles.length,
-                                (index) => Padding(
+                                (i) => Padding(
                                   padding: const EdgeInsets.all(12.0),
                                   child: Row(
                                     children: [
-                                      Icon(PopupMenuIcons[index]),
+                                      Icon(PopupMenuIcons[i],
+                                          color: data[index]['featured_id'] ==
+                                                      currentUser!.uid &&
+                                                  i == 0
+                                              ? green
+                                              : darkGrey),
                                       10.widthBox,
                                       normalText(
-                                          text: popupMenuTitles[index],
+                                          text: data[index]['featured_id'] ==
+                                                      currentUser!.uid &&
+                                                  i == 0
+                                              ? 'removed feature'
+                                              : popupMenuTitles[i],
                                           color: darkGrey)
                                     ],
-                                  ).onTap(() {}),
+                                  ).onTap(() {
+                                    switch (i) {
+                                      case 0:
+                                        if (data[index]['is_featured'] ==
+                                            true) {
+                                          controller
+                                              .removeFeature(data[index].id);
+                                          VxToast.show(context, msg: "Removed");
+                                        } else {
+                                          controller.addFeature(data[index].id);
+                                          VxToast.show(context, msg: "Added");
+                                        }
+                                        break;
+                                      case 1:
+                                        Get.to(EditProduct(data: data[index]));
+                                        controller.isloading(false);
+                                        break;
+                                      case 2:
+                                        controller
+                                            .removeProduct(data[index].id);
+                                        VxToast.show(context,
+                                            msg: "product remove");
+                                        break;
+                                      default:
+                                    }
+                                  }),
                                 ),
                               ),
                             ).box.white.rounded.width(200).make(),

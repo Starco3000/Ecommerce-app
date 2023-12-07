@@ -2,7 +2,7 @@ import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/login_scre
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/home_screen/home.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/applogo_widget%20copy.dart';
-
+import 'package:ecommerce_flutter_app/seller_screen/controllers/auth_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +14,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final AuthController authController = Get.put(AuthController());
   // Create a method to change screen
   changeScreen() {
     Future.delayed(const Duration(seconds: 3), () {
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
         if (user == null && mounted) {
           Get.to(() => const LoginScreen());
         } else {
-          Get.to(() => const Home());
+          Get.to(() => const SellerHome());
         }
       });
     });
