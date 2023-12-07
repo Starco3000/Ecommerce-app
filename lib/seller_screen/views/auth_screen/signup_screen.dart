@@ -19,7 +19,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool? isCheck = false;
-  var controller = Get.put(AuthController());
+  var controller = Get.put(AuthSellerController());
 
   //text controllers
   var nameController = TextEditingController();

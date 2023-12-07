@@ -2,9 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class AuthController extends GetxController {
+class AuthSellerController extends GetxController {
   var isloading = false.obs;
 
   var emailController = TextEditingController();

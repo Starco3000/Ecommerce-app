@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(AuthController());
+    var controller = Get.put(AuthSellerController());
 
     //text controllers
 

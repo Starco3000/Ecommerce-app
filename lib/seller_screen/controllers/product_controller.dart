@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
-class ProductsController extends GetxController {
+class ProductsSellerController extends GetxController {
   var isloading = false.obs;
   var is_sale = false.obs;
   //text field controller

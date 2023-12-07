@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final AuthController authController = Get.put(AuthController());
+  final AuthSellerController authController = Get.put(AuthSellerController());
   // Create a method to change screen
   changeScreen() {
     Future.delayed(const Duration(seconds: 3), () {

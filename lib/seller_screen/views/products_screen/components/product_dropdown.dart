@@ -4,7 +4,7 @@ import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dar
 import 'package:get/get.dart';
 
 Widget productDropdown(
-    hint, List<String> list, dropvalue, ProductsController controller) {
+    hint, List<String> list, dropvalue, ProductsSellerController controller) {
   return Obx(
     () => DropdownButtonHideUnderline(
         child: DropdownButton(

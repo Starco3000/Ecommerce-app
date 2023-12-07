@@ -11,7 +11,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ChatController());
+    var controller = Get.put(ChatSellerController());
 
     return Scaffold(
       backgroundColor: whiteColor,
