@@ -72,6 +72,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
+
     - lib/authen_screen/services/category_model.json
     - lib/seller_screen/services/category_model.json
 
