@@ -1,6 +1,7 @@
-import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/splash_screen/splash_screen.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:get/get.dart';
@@ -25,14 +26,12 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.transparent,
         appBarTheme: const AppBarTheme(
             //To set appbar icon color
-            iconTheme: IconThemeData(color: whiteColor),
+            iconTheme: IconThemeData(color: primaryColor),
             elevation: 0.0,
             backgroundColor: Colors.transparent),
         fontFamily: regular,
       ),
       home: const SplashScreen(),
-      // home: const ProfileScreen(),
-      // home: const ProductDetailsScreen(title: "Dummy item"),
     );
   }
 }
