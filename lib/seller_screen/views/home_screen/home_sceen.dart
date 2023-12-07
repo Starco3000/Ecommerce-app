@@ -10,8 +10,8 @@ import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indica
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeSellerScreen extends StatelessWidget {
+  const HomeSellerScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

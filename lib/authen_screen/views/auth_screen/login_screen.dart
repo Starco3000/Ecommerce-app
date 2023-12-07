@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const LoginSeller()),
+                                            const SellerLogin()),
                                   );
                                 },
                                 child: seller.text.color(Colors.blue).make(),

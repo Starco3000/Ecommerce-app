@@ -13,7 +13,7 @@ class OrdersScreen extends StatelessWidget {
   const OrdersScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(OrdersController());
+    var controller = Get.put(OrdersSellerController());
     return Scaffold(
       backgroundColor: white,
       appBar: appbarWidget(orders),

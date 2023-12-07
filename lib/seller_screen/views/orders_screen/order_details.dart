@@ -18,7 +18,7 @@ class OrderDetails extends StatefulWidget {
 }
 
 class _OrderDetailsState extends State<OrderDetails> {
-  var controller = Get.find<OrdersController>();
+  var controller = Get.find<OrdersSellerController>();
   @override
   void initState() {
     super.initState();

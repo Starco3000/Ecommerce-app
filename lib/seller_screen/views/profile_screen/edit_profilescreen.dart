@@ -18,7 +18,7 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ProfileController());
+    var controller = Get.put(ProfileSellerController());
 
     return bgWidget(
       context,

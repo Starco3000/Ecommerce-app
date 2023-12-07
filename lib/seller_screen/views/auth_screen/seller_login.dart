@@ -19,7 +19,7 @@ class SellerLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var authController = Get.put(AuthController());
+    var authController = Get.put(AuthSellerController());
 
     //text controllers
 
@@ -115,7 +115,7 @@ class SellerLogin extends StatelessWidget {
                                         VxToast.show(context,
                                             msg:
                                                 "Bạn không phải là người bán!");
-                                        await Get.find<AuthController>()
+                                        await Get.find<AuthSellerController>()
                                             .signoutMethod(context);
                                         Get.off(() => LoginScreen());
                                       }

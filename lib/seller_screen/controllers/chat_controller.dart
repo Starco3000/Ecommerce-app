@@ -3,7 +3,7 @@ import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
-class ChatController extends GetxController {
+class ChatSellerController extends GetxController {
   @override
   void onInit() {
     getChatId();
@@ -15,7 +15,7 @@ class ChatController extends GetxController {
   var friendName = Get.arguments[0];
   var friendId = Get.arguments[1];
 
-  var senderName = Get.find<HomeController>().username;
+  var senderName = Get.find<HomeSellerController>().username;
   var senderId = currentUser!.uid;
 
   var msgController = TextEditingController();

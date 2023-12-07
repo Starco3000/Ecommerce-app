@@ -19,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ProfileController());
+    var controller = Get.put(ProfileSellerController());
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
               icon: const Icon(Icons.edit)),
           TextButton(
               onPressed: () async {
-                await Get.find<AuthController>().signoutMethod(context);
+                await Get.find<AuthSellerController>().signoutMethod(context);
                 Get.off(() => LoginScreen());
               },
               child: normalText(text: logout))

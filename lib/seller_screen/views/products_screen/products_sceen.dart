@@ -14,7 +14,7 @@ class ProductsScreen extends StatelessWidget {
   const ProductsScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ProductsController());
+    var controller = Get.put(ProductsSellerController());
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(

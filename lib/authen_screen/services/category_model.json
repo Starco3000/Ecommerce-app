@@ -1,54 +1,40 @@
 {
   "categories": [
     {
-      "name": "Laptop",
-      "subcategory": ["Official Laptop", "Gaming Laptop"]
+      "name": "Women Dress",
+      "subcategory": ["Wedding & Event", "Top & Sets", "Watches"]
     },
     {
-      "name": "Main, CPU, VGA",
-      "subcategory": ["Main", "CPU", "VGA"]
+      "name": "Men Clothing & Fashion",
+      "subcategory": ["Outwear & Jackets", "Formal Dress", "Accessories"]
     },
     {
-      "name": "Hard Drive & RAM",
-      "subcategory": ["SSD", "HDD", "RAM DDR4", "RAM DDR5"]
+      "name": "Computer & Accessories",
+      "subcategory": ["Labtop", "Gaming PC", "Official Equipment"]
     },
     {
-      "name": "Apple",
-      "subcategory": [
-        "Macbook Air",
-        "Macbook Pro",
-        "iMac",
-        "Mac Mini",
-        "iPhone"
-      ]
+      "name": "Automobie",
+      "subcategory": ["Cars", "Bikes"]
     },
     {
-      "name": "Gaming Screen",
-      "subcategory": ["ACER", "MSI", "LG", "GIGABYTE", "ASUS", "SAMSUNG"]
+      "name": "Kids & Toys",
+      "subcategory": ["Shoes & Bags", "Baby Clothing", "Girls Toys"]
     },
     {
-      "name": "Keyboards",
-      "subcategory": ["Dare-U", "E-Dra", "Rapoo", "Keychron"]
+      "name": "Sports",
+      "subcategory": ["Cycling", "Sneakers", "Swimming"]
     },
     {
-      "name": "Mouse & Mouse Pad",
-      "subcategory": [
-        "Asus",
-        "Logitech",
-        "Razer",
-        "Akko",
-        "E-Dra",
-        "Rapoo",
-        "Dare-U"
-      ]
+      "name": "Jewelery",
+      "subcategory": ["Necklance", "Gold", "Earing"]
     },
     {
-      "name": "Headset & Loudspeaker",
-      "subcategory": ["Asus", "Logitech", "Razer", "E-Dra", "Rapoo", "Dare-U"]
+      "name": "Cellphone & Tab",
+      "subcategory": ["Smartphone", "Tablets", "Accessories"]
     },
     {
-      "name": "Tables & Chairs",
-      "subcategory": ["Razer", "E-Dra", "MSI", "Epione"]
+      "name": "Furniture",
+      "subcategory": ["Sofa", "Bed", "Home Textile"]
     }
   ]
 }

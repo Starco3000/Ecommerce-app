@@ -17,7 +17,7 @@ class EditProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.find<ProductsController>();
+    var controller = Get.find<ProductsSellerController>();
     controller.setInitialValues(data);
     controller.getCategories().then((_) {
       controller.populateCategoryList();

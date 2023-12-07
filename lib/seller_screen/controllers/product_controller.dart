@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_flutter_app/seller_screen/models/category_model.dart';
-import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
+import 'package:ecommerce_flutter_app/authen_screen/models/category_model.dart';
+import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:flutter/services.dart';
@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
-class ProductsController extends GetxController {
+class ProductsSellerController extends GetxController {
   var isloading = false.obs;
   var is_sale = false.obs;
   //text field controller
@@ -31,7 +31,7 @@ class ProductsController extends GetxController {
 
   getCategories() async {
     var data = await rootBundle
-        .loadString("lib/seller_screen/services/category_model.json");
+        .loadString("lib/authen_screen/services/category_model.json");
     var cat = categoryModelFromJson(data);
     category = cat.categories;
   }
