@@ -4,10 +4,11 @@ import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/orders_screen/orders_sceen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/products_sceen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/profile_screen/profile_screen.dart';
+
 import 'package:get/get.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class SellerHome extends StatelessWidget {
+  const SellerHome({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,8 @@ const featuredImages1 = [imgS1, imgS2, imgS3];
 const featuredImages2 = [imgS4, imgS5, imgS6];
 const featuredTitles1 = [womenDress, girlsDress, girlsWatches];
 const featuredTitles2 = [boysGlasses, mobilePhone, tShirt];
-
+const profileButtonsTitles = [shopSettings, messages];
+const profileButtonsIcons = [Icons.settings, Icons.chat];
 const categorieLists = [
   womenDress,
   menClothingFashion,
