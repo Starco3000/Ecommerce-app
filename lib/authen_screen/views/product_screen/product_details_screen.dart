@@ -106,7 +106,12 @@ class ProductDetailsScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                "Seller".text.white.fontFamily(semibold).make(),
+                                "Seller"
+                                    .text
+                                    .color(dartgreyColor)
+                                    .fontFamily(semibold)
+                                    .size(18)
+                                    .make(),
                                 5.heightBox,
                                 "${data['p_seller']}"
                                     .text
@@ -117,11 +122,6 @@ class ProductDetailsScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const CircleAvatar(
-                            backgroundColor: whiteColor,
-                            child: Icon(Icons.message_rounded,
-                                color: dartgreyColor),
-                          )
                         ],
                       )
                           .box

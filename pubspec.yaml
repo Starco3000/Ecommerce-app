@@ -72,7 +72,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
-    - lib/authen_screen/services/category_model.json
+    - lib/authen_screen/services/category_model2.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -63,7 +63,8 @@ class AuthController extends GetxController {
         'id': currentUser!.uid,
         'cart_count': "00",
         'wishlist_count': "00",
-        'order_count': "00"
+        'order_count': "00",
+        'isSeller': false
       });
     } else {
       // Trường hợp currentUser là null, tạo một người dùng mới
@@ -84,7 +85,8 @@ class AuthController extends GetxController {
             'id': authResult.user!.uid,
             'cart_count': "00",
             'wishlist_count': "00",
-            'order_count': "00"
+            'order_count': "00",
+            'isSeller': false
           });
         } else {
           // Xử lý trường hợp không thể tạo người dùng mới

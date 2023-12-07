@@ -51,6 +51,7 @@ const icWallet = "assets/icons/wallet.png";
 const icWhiteTick = "assets/icons/white_tick.png";
 const icWholeSale = "assets/icons/wholesale.png";
 const icGear = "assets/icons/gear.png";
+const icFlashSale = "assets/icons/flash_deal.png";
 
 //images
 
@@ -133,3 +134,13 @@ const imgVogue = "assets/images/vogue.png";
 const imgWallet = "assets/images/wallet.png";
 const imgCartEmpty = "assets/images/cart_empty.png";
 const imgEmptyWishlist = "assets/images/empty_wishlist.jpeg";
+
+const imgCate1 = "assets/images/p1.jpeg";
+const imgCate2 = "assets/images/VGA.jpg";
+const imgCate3 = "assets/images/ram.jpg";
+const imgCate4 = "assets/images/pi1.jpg";
+const imgCate5 = "assets/images/gaming_screen.jpg";
+const imgCate6 = "assets/images/keyboard.png";
+const imgCate7 = "assets/images/mouse.jpg";
+const imgCate8 = "assets/images/headset.jpg";
+const imgCate9 = "assets/images/tablenchair.jpg";

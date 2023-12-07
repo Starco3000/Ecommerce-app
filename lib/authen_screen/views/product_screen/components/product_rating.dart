@@ -83,19 +83,6 @@ class ProductRating extends StatelessWidget {
                         size: 26,
                       ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Get.to(
-                        () => const ChatScreen(),
-                        arguments: [data['p_seller'], data['vendor_id']],
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.chat_rounded,
-                      color: dartgreyColor,
-                      size: 26,
-                    ),
                   )
                 ],
               )
