@@ -1,0 +1,55 @@
+{
+    "categories": [
+      {
+        "name": "Laptop",
+        "subcategory": ["Official Laptop", "Gaming Laptop"]
+      },
+      {
+        "name": "Main, CPU, VGA",
+        "subcategory": ["Main", "CPU", "VGA"]
+      },
+      {
+        "name": "Hard Drive & RAM",
+        "subcategory": ["SSD", "HDD", "RAM DDR4", "RAM DDR5"]
+      },
+      {
+        "name": "Apple",
+        "subcategory": [
+          "Macbook Air",
+          "Macbook Pro",
+          "iMac",
+          "Mac Mini",
+          "iPhone"
+        ]
+      },
+      {
+        "name": "Gaming Screen",
+        "subcategory": ["ACER", "MSI", "LG", "GIGABYTE", "ASUS", "SAMSUNG"]
+      },
+      {
+        "name": "Keyboards",
+        "subcategory": ["Dare-U", "E-Dra", "Rapoo", "Keychron"]
+      },
+      {
+        "name": "Mouse & Mouse Pad",
+        "subcategory": [
+          "Asus",
+          "Logitech",
+          "Razer",
+          "Akko",
+          "E-Dra",
+          "Rapoo",
+          "Dare-U"
+        ]
+      },
+      {
+        "name": "Headset & Loudspeaker",
+        "subcategory": ["Asus", "Logitech", "Razer", "E-Dra", "Rapoo", "Dare-U"]
+      },
+      {
+        "name": "Tables & Chairs",
+        "subcategory": ["Razer", "E-Dra", "MSI", "Epione"]
+      }
+    ]
+  }
+
