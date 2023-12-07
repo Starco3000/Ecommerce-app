@@ -35,7 +35,7 @@ class HomeContent extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: featuredCategories.text
+                  child: popularProduct.text
                       .color(dartgreyColor)
                       .size(18)
                       .fontFamily(semibold)
@@ -46,14 +46,19 @@ class HomeContent extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Column(
                       children: [
-                        featuredCategory(
-                            countItem: 3,
-                            image: featuredImages1,
-                            title: featuredTitles1),
-                        featuredCategory(
-                            countItem: 3,
-                            image: featuredImages2,
-                            title: featuredTitles2),
+                        // featuredCategory(
+                        //     countItem: 3,
+                        //     image: featuredImages1,
+                        //     title: featuredTitles1),
+                        // featuredCategory(
+                        //     countItem: 3,
+                        //     image: featuredImages2,
+                        //     title: featuredTitles2),
+                        featuredProducts(
+                            fontTitle: semibold,
+                            colorTitle: dartgreyColor,
+                            fontPrice: bold,
+                            colorPrice: primaryColor),
                       ],
                     )),
               ],

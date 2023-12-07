@@ -42,7 +42,7 @@ const searchBarHint = "Search something ...",
     tShirt = "T-Shirt",
     girlsDress = "Girls Dress",
     featuredProduct = "Flash Sale",
-    featuredCategories = "Featured Categories";
+    popularProduct = "Popular Products";
 
 // Categories string
 const womanClothing = "Women Dress",

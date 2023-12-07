@@ -36,21 +36,6 @@ class AuthController extends GetxController {
     return userCredential;
   }
 
-  //storing data method
-  // storeUserData({name, password, email}) async {
-  //   DocumentReference store =
-  //       await firestore.collection(usersCollection).doc(currentUser!.uid);
-  //   store.set({
-  //     'name': name,
-  //     'password': password,
-  //     'email': email,
-  //     'imageUrl': '',
-  //     'id': currentUser!.uid,
-  //     'cart_count': "00",
-  //     'wishlist_count': "00",
-  //     'order_count': "00"
-  //   });
-  // }
   storeUserData({name, password, email}) async {
     if (currentUser != null) {
       DocumentReference store =
