@@ -51,36 +51,6 @@ class WishlistScreen extends StatelessWidget {
                             crossAxisSpacing: 2,
                             mainAxisExtent: 330),
                     itemBuilder: (context, index) {
-                      // return ListTile(
-                      //   leading: Image.network(
-                      //     "${data[index]['img'][0]}",
-                      //     width: 80,
-                      //     fit: BoxFit.cover,
-                      //   ),
-                      //   title:
-                      //       "${data[index]['p_name']} (x${data[index]['quantity']})"
-                      //           .text
-                      //           .fontFamily(semibold)
-                      //           .size(16)
-                      //           .make(),
-                      //   subtitle: "${data[index]['p_price']}"
-                      //       .numCurrency
-                      //       .text
-                      //       .color(primaryColor)
-                      //       .fontFamily(semibold)
-                      //       .make(),
-                      //   trailing:
-                      //       const Icon(Icons.favorite, color: primaryColor)
-                      //           .onTap(() async {
-                      //     await firestore
-                      //         .collection(productsCollection)
-                      //         .doc(data[index].id)
-                      //         .set({
-                      //       'p_wishlish':
-                      //           FieldValue.arrayRemove([currentUser!.uid])
-                      //     }, SetOptions(merge: true));
-                      //   }),
-                      // );
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

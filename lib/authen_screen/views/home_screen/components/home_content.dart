@@ -69,11 +69,21 @@ class HomeContent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                featuredProduct.text.white
-                    .fontFamily(bold)
-                    .fontWeight(FontWeight.w600)
-                    .size(20)
-                    .make(),
+                Row(
+                  children: [
+                    featuredProduct.text.white
+                        .fontFamily(bold)
+                        .fontWeight(FontWeight.w600)
+                        .size(20)
+                        .make(),
+                    10.widthBox,
+                    Image.asset(
+                      icFlashSale,
+                      width: 30,
+                      height: 30,
+                    )
+                  ],
+                ),
                 10.heightBox,
                 SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -105,7 +115,7 @@ class HomeContent extends StatelessWidget {
                   width: context.screenWidth,
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: "Recommend Product"
+                  child: "Recommend Products"
                       .text
                       .color(primaryColor)
                       .fontFamily(bold)

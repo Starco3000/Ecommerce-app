@@ -107,7 +107,7 @@ class FirestoreServices {
   static getFeaturedProducts() {
     return firestore
         .collection(productsCollection)
-        .where('is_featured', isEqualTo: true)
+        .where('is_sale', isEqualTo: true)
         .get();
   }
 

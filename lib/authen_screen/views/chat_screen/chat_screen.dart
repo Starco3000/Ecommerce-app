@@ -110,14 +110,14 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        backgroundColor: primaryColor,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: primaryColor,
+            color: dartgreyColor,
             size: 26,
           ),
         ),

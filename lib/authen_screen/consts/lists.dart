@@ -11,28 +11,39 @@ const featuredTitles1 = [womenDress, girlsDress, girlsWatches];
 const featuredTitles2 = [boysGlasses, mobilePhone, tShirt];
 
 const categorieLists = [
-  womenDress,
-  menClothingFashion,
-  compAccess,
-  automobie,
-  kidtoys,
-  sports,
-  jewelery,
-  cellphone,
-  furniture,
+  // womenDress,
+  // menClothingFashion,
+  // compAccess,
+  // automobie,
+  // kidtoys,
+  // sports,
+  // jewelery,
+  // cellphone,
+  // furniture,
+  laptop,
+  mainCpuVga,
+  hdriveRam,
+  apple,
+  gamingScreen,
+  keyboard,
+  mouseMpad,
+  headsetloudSpeaker,
+  tablenChair
 ];
 
 const categoriesImages = [
-  imgFc1,
-  imgFc2,
-  imgFc3,
-  imgFc4,
-  imgFc5,
-  imgFc6,
-  imgFc7,
-  imgFc8,
-  imgFc9,
-  imgFc10
+  // imgFc1,
+  // imgFc2,
+  // imgFc3,
+  // imgFc4,
+  // imgFc5,
+  // imgFc6,
+  // imgFc7,
+  // imgFc8,
+  // imgFc9,
+  // imgFc10
+  imgCate1, imgCate2, imgCate3, imgCate4, imgCate5, imgCate6, imgCate7,
+  imgCate8, imgCate9
 ];
 
 const productDetailButtonsList = [

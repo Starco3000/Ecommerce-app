@@ -136,33 +136,36 @@ class _SignupScreenState extends State<SignupScreen> {
                                       : Colors.grey[400],
                                   textColor: whiteColor,
                                   title: signup,
-                                  onPress: () async {
-                                    if (isCheck == true) {
-                                      controller.isloading(true);
-                                      try {
-                                        await controller
-                                            .signupMethod(
-                                                context: context,
-                                                email: emailController.text,
-                                                password:
-                                                    passwordController.text)
-                                            .then((value) {
-                                          return controller.storeUserData(
-                                              email: emailController.text,
-                                              password: passwordController.text,
-                                              name: nameController.text);
-                                        }).then((value) {
-                                          VxToast.show(context, msg: loggedin);
-                                          Get.offAll(() => const Home());
-                                        });
-                                      } catch (e) {
-                                        auth.signOut();
-                                        VxToast.show(context,
-                                            msg: e.toString());
-                                        controller.isloading(false);
-                                      }
-                                    }
-                                  }).box.width(context.screenWidth - 50).make(),
+                                  onPress: isCheck == true
+                                      ? () async {
+                                          controller.isloading(true);
+                                          try {
+                                            await controller
+                                                .signupMethod(
+                                                    context: context,
+                                                    email: emailController.text,
+                                                    password:
+                                                        passwordController.text)
+                                                .then((value) {
+                                              return controller.storeUserData(
+                                                  email: emailController.text,
+                                                  password:
+                                                      passwordController.text,
+                                                  name: nameController.text);
+                                            }).then((value) {
+                                              VxToast.show(context,
+                                                  msg: loggedin);
+                                              Get.offAll(() => const Home());
+                                            });
+                                          } catch (e) {
+                                            auth.signOut();
+                                            VxToast.show(context,
+                                                msg: e.toString());
+                                            controller.isloading(false);
+                                          }
+                                        }
+                                      : null,
+                                ).box.width(context.screenWidth - 50).make(),
                           5.heightBox,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

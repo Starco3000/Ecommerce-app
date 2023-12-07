@@ -32,7 +32,7 @@ class CatetoryItemProduct extends StatelessWidget {
                     data[index]['p_imgs'][0],
                     height: 150,
                     width: 150,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fitWidth,
                   ),
                   5.heightBox,
                   Row(
