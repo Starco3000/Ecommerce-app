@@ -1,4 +1,4 @@
-const appName = "MT-Mart";
+const appName = "MT Computer";
 const appVersion = "Version 1.0.0";
 const credits = "Copyright by Macus Nguyen & Huu Thang";
 const email = "Email";
@@ -41,7 +41,7 @@ const searchBarHint = "Search something ...",
     boysGlasses = "Boy Glasses",
     tShirt = "T-Shirt",
     girlsDress = "Girls Dress",
-    featuredProduct = "Featured Product",
+    featuredProduct = "Flash Sale",
     featuredCategories = "Featured Categories";
 
 // Categories string
@@ -53,7 +53,16 @@ const womanClothing = "Women Dress",
     sports = "Sports",
     jewelery = "Jewelery",
     cellphone = "Cellphone & Tab",
-    furniture = "Furniture";
+    furniture = "Furniture",
+    laptop = "Laptop",
+    mainCpuVga = "Main, CPU, VGA",
+    hdriveRam = "Hard Drive & RAM",
+    apple = "Apple",
+    gamingScreen = "Gaming Screen",
+    keyboard = "Keyboards",
+    mouseMpad = "Mouse & Mouse Pad",
+    headsetloudSpeaker = "Headset & Loudspeaker",
+    tablenChair = "Tables & Chairs";
 
 //Product detail string
 const video = "Video",

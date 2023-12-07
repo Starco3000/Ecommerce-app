@@ -1,5 +1,6 @@
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/chat_screen/chat_screen.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/mainbutton_widget.dart';
 import 'package:get/get.dart';
 
@@ -17,18 +18,27 @@ class BottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              const Icon(
-                Icons.chat_outlined,
-                color: primaryColor,
-              ),
-              "Chat Now".text.color(dartgreyColor).make(),
-            ],
-          )
-              .box
-              .padding(const EdgeInsets.symmetric(vertical: 9, horizontal: 16))
-              .make(),
+          GestureDetector(
+            onTap: () {
+              Get.to(
+                () => const ChatScreen(),
+                arguments: [data['p_seller'], data['vendor_id']],
+              );
+            },
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.chat_outlined,
+                  color: primaryColor,
+                ),
+                "Chat Now".text.color(dartgreyColor).make(),
+              ],
+            )
+                .box
+                .padding(
+                    const EdgeInsets.symmetric(vertical: 9, horizontal: 16))
+                .make(),
+          ),
           Container(
             width: 1,
             height: double.infinity,

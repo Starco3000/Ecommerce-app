@@ -35,7 +35,7 @@ class CategoryScreen extends StatelessWidget {
                         categoriesImages[index],
                         height: 120,
                         width: 200,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fitWidth,
                       ),
                       10.heightBox,
                       categorieLists[index]
