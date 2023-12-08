@@ -7,6 +7,7 @@ import 'package:ecommerce_flutter_app/authen_screen/widgets/bg_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/mainbutton_widget.dart';
 import 'package:ecommerce_flutter_app/authen_screen/widgets/textfield_widget.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/seller_login.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -91,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const SignupScreen()),
+                                            const LoginSeller()),
                                   );
                                 },
                                 child: seller.text.color(Colors.blue).make(),
