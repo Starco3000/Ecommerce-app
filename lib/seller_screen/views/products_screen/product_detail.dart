@@ -94,7 +94,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         value: controller.is_sale.value,
                         onChanged: (value) {
                           controller.changeStatus(
-                              title: "Sale",
+                              title: "is_sale",
                               status: value,
                               docID: widget.data.id);
                           controller.is_sale.value = value;

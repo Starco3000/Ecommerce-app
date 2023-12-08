@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/models/category_model.dart';
+import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:flutter/services.dart';
@@ -31,7 +31,7 @@ class ProductsSellerController extends GetxController {
 
   getCategories() async {
     var data = await rootBundle
-        .loadString("lib/authen_screen/services/category_model.json");
+        .loadString("lib/seller_screen/services/category_model.json");
     var cat = categoryModelFromJson(data);
     category = cat.categories;
   }

@@ -14,7 +14,7 @@ class SellerHome extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.put(HomeSellerController());
     var navScreens = [
-      const HomeSellerScreen(),
+      const HomeScreen(),
       const ProductsScreen(),
       const OrdersScreen(),
       const ProfileScreen()
