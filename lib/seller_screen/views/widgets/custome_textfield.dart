@@ -19,7 +19,7 @@ Widget customTextField(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Vx.white)),
       hintText: hint,
-      hintStyle: TextStyle(color: Colors.white),
+      hintStyle: const TextStyle(color: Colors.white),
     ),
   );
 }

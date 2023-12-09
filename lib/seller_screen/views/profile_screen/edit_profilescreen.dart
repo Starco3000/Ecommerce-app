@@ -18,7 +18,7 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ProfileSellerController());
+    var controller = Get.find<ProfileSellerController>();
 
     return bgWidget(
       context,
@@ -48,7 +48,7 @@ class EditProfileScreen extends StatelessWidget {
                         fit: StackFit.expand,
                         children: [
                           //If data Image url and controller path is Empty
-                          data?['imageUrl'] == '' &&
+                          data['imageUrl'] == '' &&
                                   controller.profileImgPath.isEmpty
                               ? Image.asset(imgProfile2,
                                       width: 100, fit: BoxFit.cover)
@@ -57,10 +57,10 @@ class EditProfileScreen extends StatelessWidget {
                                   .clip(Clip.antiAlias)
                                   .make()
                               //If data is not empty but controller path is empty
-                              : controller.snapshotData['imageUrl'] != '' &&
+                              : data['imageUrl'] != '' &&
                                       controller.profileImgPath.isEmpty
                                   ? Image.network(
-                                      controller.snapshotData['imageUrl'],
+                                      data['imageUrl'],
                                       width: 100,
                                       fit: BoxFit.cover,
                                     )

@@ -1,6 +1,5 @@
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
-import 'package:ecommerce_flutter_app/seller_screen/consts/colors.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_dropdown.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_images.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/custome_textfield.dart';
@@ -31,6 +30,7 @@ class AddProduct extends StatelessWidget {
                     onPressed: () async {
                       controller.isloading(true);
                       await controller.uploadImages();
+                      // ignore: use_build_context_synchronously
                       await controller.uploadProduct(context);
                       Get.back();
                     },
@@ -47,25 +47,25 @@ class AddProduct extends StatelessWidget {
                 customTextField(
                     hint: "eg.  BMW",
                     lable: "Product name",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     controller: controller.pnameController),
                 10.heightBox,
                 customTextField(
                     hint: "eg.  nice product",
                     lable: "Description",
                     isDesc: true,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     controller: controller.pdescController),
                 10.heightBox,
                 customTextField(
                     hint: "eg.  \$300",
                     lable: "Price",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     controller: controller.ppriceController),
                 10.heightBox,
                 customTextField(
                     hint: "eg.  30",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     lable: "Quantities",
                     controller: controller.pquantityController),
                 10.heightBox,
@@ -87,7 +87,7 @@ class AddProduct extends StatelessWidget {
                                 .onTap(() {
                                 controller.pickImage(index, context);
                               })
-                            : ProductImage(label: "${index + 1}").onTap(() {
+                            : productImage(label: "${index + 1}").onTap(() {
                                 controller.pickImage(index, context);
                               })),
                   ),

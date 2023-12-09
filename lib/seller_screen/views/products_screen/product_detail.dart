@@ -1,10 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
 class ProductDetails extends StatefulWidget {
   final dynamic data;

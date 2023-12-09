@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:ecommerce_flutter_app/authen_screen/views/auth_screen/login_screen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/auth_controller.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/login_screen.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/signup_screen.dart';
-
-import 'package:ecommerce_flutter_app/seller_screen/views/widgets/applogo_widget%20copy.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/widgets/applogo_widget_copy.dart';
 
 import 'package:ecommerce_flutter_app/seller_screen/views/home_screen/home.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/bg_widget.dart';
@@ -68,7 +66,7 @@ class SellerLogin extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const SignupScreen()),
+                                          const SellerLogin()),
                                 );
                               },
                               child: forgetPass.text
@@ -86,7 +84,7 @@ class SellerLogin extends StatelessWidget {
                                           const LoginScreen()),
                                 );
                               },
-                              child: Auser.text.color(Colors.blue).make(),
+                              child: auser.text.color(Colors.blue).make(),
                             ),
                           ]),
                       const SizedBox(height: 15),
@@ -117,7 +115,7 @@ class SellerLogin extends StatelessWidget {
                                                 "Bạn không phải là người bán!");
                                         await Get.find<AuthSellerController>()
                                             .signoutMethod(context);
-                                        Get.off(() => LoginScreen());
+                                        Get.off(() => SellerLogin());
                                       }
                                     });
                                   } else {

@@ -1,12 +1,9 @@
-import 'package:ecommerce_flutter_app/seller_screen/consts/colors.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/orders_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/orders_screen/components/order_place.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/mainbutton_widget.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart' as inlt;
 
 class OrderDetails extends StatefulWidget {
@@ -40,7 +37,7 @@ class _OrderDetailsState extends State<OrderDetails> {
               },
               icon: const Icon(Icons.arrow_back, color: Colors.black),
             ),
-            title: Text("Order Details"),
+            title: const Text("Order Details"),
           ),
           bottomNavigationBar: Visibility(
             visible: !controller.confirmed.value,

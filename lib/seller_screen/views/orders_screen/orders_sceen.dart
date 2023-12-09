@@ -13,6 +13,7 @@ class OrdersScreen extends StatelessWidget {
   const OrdersScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(OrdersSellerController());
     return Scaffold(
       backgroundColor: white,
@@ -46,7 +47,8 @@ class OrdersScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.calendar_month, color: fontGrey),
+                                const Icon(Icons.calendar_month,
+                                    color: fontGrey),
                                 10.widthBox,
                                 boldText(
                                     text: intl.DateFormat()
@@ -57,7 +59,7 @@ class OrdersScreen extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Icon(Icons.payment, color: fontGrey),
+                                const Icon(Icons.payment, color: fontGrey),
                                 10.widthBox,
                                 boldText(text: unpaid, color: red),
                               ],

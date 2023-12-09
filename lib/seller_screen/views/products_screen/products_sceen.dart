@@ -24,7 +24,7 @@ class ProductsScreen extends StatelessWidget {
           controller.isloading(false);
           Get.to(() => const AddProduct());
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       appBar: appbarWidget(products),
       body: StreamBuilder(
@@ -75,7 +75,7 @@ class ProductsScreen extends StatelessWidget {
                                   padding: const EdgeInsets.all(12.0),
                                   child: Row(
                                     children: [
-                                      Icon(PopupMenuIcons[i],
+                                      Icon(popupMenuIcons[i],
                                           color: data[index]['featured_id'] ==
                                                       currentUser!.uid &&
                                                   i == 0

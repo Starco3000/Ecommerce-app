@@ -2,7 +2,6 @@
 
 import 'package:ecommerce_flutter_app/authen_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/authen_screen/controllers/product_controller.dart';
-import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/featured_catetory.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/featured_product.dart';
 import 'package:ecommerce_flutter_app/authen_screen/views/home_screen/components/other_product.dart';
 import 'package:get/get.dart';

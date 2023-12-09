@@ -31,9 +31,7 @@ class Body extends StatelessWidget {
                 child: Row(
                   children: [
                     data['imageUrl'] == ''
-                        ?
-                        // const ProfilePicture(),
-                        Image.asset(imgProfile2, width: 80, fit: BoxFit.cover)
+                        ? Image.asset(imgProfile2, width: 80, fit: BoxFit.cover)
                             .box
                             .roundedFull
                             .clip(Clip.antiAlias)

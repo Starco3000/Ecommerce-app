@@ -36,6 +36,7 @@ class AuthSellerController extends GetxController {
   //storing data method
   storeUserData({name, password, email}) async {
     DocumentReference store =
+        // ignore: await_only_futures
         await firestore.collection(usersCollection).doc(currentUser!.uid);
     store.set({
       'name': name,

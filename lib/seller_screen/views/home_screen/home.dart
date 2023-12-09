@@ -12,12 +12,12 @@ class SellerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(HomeSellerController());
+    var controller = Get.put(SellerHomeController());
     var navScreens = [
       const HomeScreen(),
       const ProductsScreen(),
       const OrdersScreen(),
-      const ProfileScreen()
+      const ProfileSellerScreen()
     ];
     var bottomNavbar = [
       const BottomNavigationBarItem(icon: Icon(Icons.home), label: dashboard),

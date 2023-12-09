@@ -120,6 +120,12 @@ class ProductsSellerController extends GetxController {
 
   updateProduct(String docId, BuildContext context) async {
     var store = firestore.collection(productsCollection).doc(docId);
+    // Xóa hình ảnh cũ
+    await store.update({
+      'p_imgs': FieldValue.delete(),
+    });
+    // Tải lên hình ảnh mới
+    await uploadImages();
     await store.update({
       'p_category': categoryvalue.value,
       'p_subcategory': subcategoryvalue.value,
@@ -130,6 +136,7 @@ class ProductsSellerController extends GetxController {
       'vendor_id': currentUser?.uid,
       'p_imgs': FieldValue.arrayUnion(pImagesLinks),
     });
+    // ignore: use_build_context_synchronously
     VxToast.show(context, msg: "Product updated");
   }
 

@@ -33,13 +33,6 @@ class AppBarActions extends StatelessWidget {
             ),
           ),
         ),
-        // IconButton(
-        //   onPressed: () {},
-        //   icon: const Icon(
-        //     Icons.favorite_outline,
-        //     color: dartgreyColor,
-        //   ),
-        // ),
         5.widthBox,
         CircleAvatar(
           backgroundColor: whiteColor.withOpacity(0.8),

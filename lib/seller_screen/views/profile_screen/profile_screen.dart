@@ -5,17 +5,15 @@ import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/auth_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/profile_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/services/store_services.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/login_screen.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/seller_login.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/messages_screen/messages_screen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/profile_screen/edit_profilescreen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ProfileSellerScreen extends StatelessWidget {
+  const ProfileSellerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +27,14 @@ class ProfileScreen extends StatelessWidget {
               onPressed: () {
                 Get.to(() => EditProfileScreen());
               },
-              icon: const Icon(Icons.edit)),
+              icon: const Icon(
+                Icons.edit,
+                color: whiteColor,
+              )),
           TextButton(
               onPressed: () async {
                 await Get.find<AuthSellerController>().signoutMethod(context);
-                Get.off(() => LoginScreen());
+                Get.offAll(() => SellerLogin());
               },
               child: normalText(text: logout))
         ],
@@ -44,24 +45,23 @@ class ProfileScreen extends StatelessWidget {
           if (!snapshot.hasData) {
             return loadingIndicator();
           } else {
-            controller.snapshotData = snapshot.data!.docs[0];
+            var data = snapshot.data!.docs[0];
             return Column(children: [
               ListTile(
-                leading: controller.snapshotData['imageUrl'] == '' &&
-                        controller.profileImgPath.isEmpty
-                    ? Image.asset(imgProduct, width: 100)
-                        .box
-                        .roundedFull
-                        .clip(Clip.antiAlias)
-                        .make()
-                    : Image.network(
-                        controller.snapshotData['imageUrl'],
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ).box.roundedFull.clip(Clip.antiAlias).make(),
-                title: boldText(text: "${controller.snapshotData['name']}"),
-                subtitle:
-                    normalText(text: "${controller.snapshotData['email']}"),
+                leading:
+                    data['imageUrl'] == '' && controller.profileImgPath.isEmpty
+                        ? Image.asset(imgProduct, width: 100)
+                            .box
+                            .roundedFull
+                            .clip(Clip.antiAlias)
+                            .make()
+                        : Image.network(
+                            data['imageUrl'],
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make(),
+                title: boldText(text: "${data['name']}"),
+                subtitle: normalText(text: "${data['email']}"),
               ),
               Divider(),
               10.heightBox,
@@ -92,33 +92,6 @@ class ProfileScreen extends StatelessWidget {
           }
         },
       ),
-      // body: Column(children: [
-      //   ListTile(
-      //     leading: Image.asset(imgProduct)
-      //         .box
-      //         .roundedFull
-      //         .clip(Clip.antiAlias)
-      //         .make(),
-      //     title: boldText(text: "Vendor name"),
-      //     subtitle: normalText(text: "thang@gmail.com"),
-      //   ),
-      //   Divider(),
-      //   10.heightBox,
-      //   Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Column(
-      //       children: List.generate(
-      //           profileButtonsIcons.length,
-      //           (index) => ListTile(
-      //                 leading: Icon(
-      //                   profileButtonsIcons[index],
-      //                   color: white,
-      //                 ),
-      //                 title: normalText(text: profileButtonsIcons[index]),
-      //               )),
-      //     ),
-      //   ),
-      // ]),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:get/get.dart';
 
-class HomeSellerController extends GetxController {
+class SellerHomeController extends GetxController {
   var navIndex = 0.obs;
   @override
   void onInit() {

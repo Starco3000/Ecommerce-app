@@ -1,7 +1,7 @@
-import 'package:ecommerce_flutter_app/seller_screen/views/auth_screen/login_screen.dart';
+import 'package:ecommerce_flutter_app/authen_screen/views/auth_screen/login_screen.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/home_screen/home.dart';
-import 'package:ecommerce_flutter_app/seller_screen/views/widgets/applogo_widget%20copy.dart';
+import 'package:ecommerce_flutter_app/seller_screen/views/widgets/applogo_widget_copy.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/auth_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';

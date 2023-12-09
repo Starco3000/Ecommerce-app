@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_flutter_app/seller_screen/consts/consts.dart';
 import 'package:ecommerce_flutter_app/seller_screen/controllers/product_controller.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/products_screen/components/product_dropdown.dart';
@@ -7,8 +6,6 @@ import 'package:ecommerce_flutter_app/seller_screen/views/widgets/custome_textfi
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/loading_indicator.dart';
 import 'package:ecommerce_flutter_app/seller_screen/views/widgets/text_style.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
 class EditProduct extends StatelessWidget {
   final dynamic data;
@@ -39,7 +36,6 @@ class EditProduct extends StatelessWidget {
                 : TextButton(
                     onPressed: () async {
                       controller.isloading(true);
-                      await controller.uploadImages();
                       await controller.updateProduct(data.id, context);
                       Get.back();
                     },
@@ -56,26 +52,26 @@ class EditProduct extends StatelessWidget {
                 customTextField(
                     hint: "eg.  BMW",
                     lable: "Product name",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     controller: controller.pnameController),
                 10.heightBox,
                 customTextField(
                     hint: "eg.  nice product",
                     lable: "Description",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     isDesc: true,
                     controller: controller.pdescController),
                 10.heightBox,
                 customTextField(
                     hint: "eg.  \$300",
                     lable: "Price",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     controller: controller.ppriceController),
                 10.heightBox,
                 customTextField(
                     hint: "eg.  30",
                     lable: "Quantities",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     controller: controller.pquantityController),
                 10.heightBox,
                 productDropdown("Category", controller.categoryList,
@@ -96,7 +92,7 @@ class EditProduct extends StatelessWidget {
                                 .onTap(() {
                                 controller.pickImage(index, context);
                               })
-                            : ProductImage(label: "${index + 1}").onTap(() {
+                            : productImage(label: "${index + 1}").onTap(() {
                                 controller.pickImage(index, context);
                               })),
                   ),
